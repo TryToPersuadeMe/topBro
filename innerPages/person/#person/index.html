@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="ключевые слова" />
+    <meta name="description" content="крутой сайт" />
+    <link href="./img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/globalMain.css" />
+    <link rel="stylesheet" href="./css/localMain.css" />
+    <title>Explem</title>
+  </head>
+  <body>
+    <div class="wrapper bg-pink">
+      @@include("./_header.html")
+      <main>
+        @@include("./_navigationPages.html") @@include("./_personalCard.html") @@include("./_videoGallerySection.html")
+        @@include("./_allBloggersSliderSection.html") @@include("./_footer.html")
+      </main>
+    </div>
+    <!-- swiper -->
+    <script src="./js/js_plugins/swiper.bundle.min.js"></script>
+    <!-- main js -->
+    <script src="./js/main.js"></script>
+  </body>
+</html>

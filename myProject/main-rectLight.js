@@ -62,13 +62,13 @@ function init() {
 
   const geoBox = new THREE.BoxBufferGeometry(Math.PI, Math.sqrt(2), Math.E);
   const mshStdBox = new THREE.Mesh(geoBox, matStdObjects);
-  // mshStdBox.position.set(0, 5, 0);
-  mshStdBox.rotation.set(0, Math.PI / 2.0, 0);
+  mshStdBox.position.set(0, 5, 0);
+  mshStdBox.rotation.set(0, Math.PI / 3.0, 0);
   mshStdBox.castShadow = true;
   mshStdBox.receiveShadow = true;
   scene.add(mshStdBox);
 
-  const geoSphere = new THREE.SphereBufferGeometry(1.5, 32, 32);
+  const geoSphere = new THREE.SphereBufferGeometry(2.5, 32, 32);
   const mshStdSphere = new THREE.Mesh(geoSphere, matStdObjects);
   mshStdSphere.position.set(-5, 5, 0);
   mshStdSphere.castShadow = true;

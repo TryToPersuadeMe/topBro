@@ -11,7 +11,7 @@ import { Sky } from "https://unpkg.com/three@0.126.1/examples/jsm/objects/Sky.js
 let sky, sun;
 
 // Texture width for simulation
-const WIDTH = window.innerWidth;
+const WIDTH = 128;
 
 // Water size in system units
 const BOUNDS = 512;
@@ -34,7 +34,7 @@ let readWaterLevelRenderTarget;
 let readWaterLevelImage;
 const waterNormal = new THREE.Vector3();
 
-const NUM_SPHERES = 5;
+const NUM_SPHERES = 69;
 const spheres = [];
 let spheresEnabled = true;
 
@@ -85,7 +85,7 @@ function init() {
   const gui = new GUI();
 
   const effectController = {
-    mouseSize: 112.0,
+    mouseSize: 12.0,
     viscosity: 0.98,
     spheresEnabled: spheresEnabled,
   };

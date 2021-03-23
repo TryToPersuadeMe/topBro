@@ -11,7 +11,7 @@ import { Sky } from "https://unpkg.com/three@0.126.1/examples/jsm/objects/Sky.js
 let sky, sun;
 
 // Texture width for simulation
-const WIDTH = window.innerWidth;
+const WIDTH = 128;
 
 // Water size in system units
 const BOUNDS = 512;
@@ -48,7 +48,7 @@ function init() {
   document.body.appendChild(container);
 
   camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 3000);
-  camera.position.set(0, 200, 300);
+  camera.position.set(0, 200, 350);
   camera.lookAt(0, 0, 0);
 
   scene = new THREE.Scene();
@@ -85,7 +85,7 @@ function init() {
   const gui = new GUI();
 
   const effectController = {
-    mouseSize: 112.0,
+    mouseSize: 20.0,
     viscosity: 0.98,
     spheresEnabled: spheresEnabled,
   };
@@ -163,7 +163,7 @@ function initWater() {
 
   // THREE.Mesh just for mouse raycasting
   const geometryRay = new THREE.PlaneGeometry(BOUNDS, BOUNDS, 1, 1);
-  meshRay = new THREE.Mesh(geometryRay, new THREE.MeshBasicMaterial({ color: 0xffffff, visible: false }));
+  meshRay = new THREE.Mesh(geometryRay, new THREE.MeshStandardMaterial({ color: 0xffffff, visible: false, wireframe: true }));
   meshRay.rotation.x = -Math.PI / 2;
   meshRay.matrixAutoUpdate = false;
   meshRay.updateMatrix();
@@ -190,7 +190,7 @@ function initWater() {
   gpuCompute.setVariableDependencies(heightmapVariable, [heightmapVariable]);
 
   heightmapVariable.material.uniforms["mousePos"] = { value: new THREE.Vector2(10000, 10000) };
-  heightmapVariable.material.uniforms["mouseSize"] = { value: 20.0 };
+  heightmapVariable.material.uniforms["mouseSize"] = { value: 120.0 };
   heightmapVariable.material.uniforms["viscosityConstant"] = { value: 0.98 };
   heightmapVariable.material.uniforms["heightCompensation"] = { value: 0 };
   heightmapVariable.material.defines.BOUNDS = BOUNDS.toFixed(1);
@@ -407,5 +407,3 @@ function render() {
   // Render
   renderer.render(scene, camera);
 }
-
-
