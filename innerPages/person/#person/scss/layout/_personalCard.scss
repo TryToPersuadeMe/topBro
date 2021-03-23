@@ -84,3 +84,68 @@
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .personalCard {
+    grid-template-columns: 300px auto;
+
+    &__gridSocialMedia {
+      gap: 30px;
+      grid-auto-flow: row;
+      grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+    }
+    &__name {
+      font-size: 36px;
+    }
+
+    &__text {
+      font-size: 14px;
+    }
+
+    &__column {
+      padding: 0 25px;
+      & > * {
+        padding: 20px 0;
+      }
+    }
+
+    &__containerInfo {
+      padding: 0 20px 0 0;
+    }
+
+    .socialMedia {
+      &__counter {
+        font-size: 24px;
+      }
+
+      &__icon {
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .personalCard {
+    grid-template-columns: 1fr;
+    &__image {
+      // position: relative;
+      // height: 0;
+      // padding-bottom: 100%;
+      position: absolute;
+      width: 250px;
+      right: 0;
+      height: 250px;
+      img,
+      source {
+        // height: 100%;
+        // width: 100%;
+        // object-fit: cover;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+      }
+    }
+  }
+}

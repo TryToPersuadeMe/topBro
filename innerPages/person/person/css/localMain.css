@@ -818,6 +818,51 @@ button.swiper-pagination-bullet {
   line-height: 1.4;
 }
 
+@media (max-width: 1024px) {
+  .personalCard {
+    grid-template-columns: 300px auto;
+  }
+  .personalCard__gridSocialMedia {
+    gap: 30px;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));
+  }
+  .personalCard__name {
+    font-size: 36px;
+  }
+  .personalCard__text {
+    font-size: 14px;
+  }
+  .personalCard__column {
+    padding: 0 25px;
+  }
+  .personalCard__column > * {
+    padding: 20px 0;
+  }
+  .personalCard__containerInfo {
+    padding: 0 20px 0 0;
+  }
+  .personalCard .socialMedia__counter {
+    font-size: 24px;
+  }
+  .personalCard .socialMedia__icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .personalCard {
+    grid-template-columns: 1fr;
+  }
+  .personalCard__image {
+    position: absolute;
+    width: 250px;
+    right: 0;
+    height: 250px;
+  }
+}
+
 .allBloggers__slider {
   padding-bottom: 50px;
   position: relative;

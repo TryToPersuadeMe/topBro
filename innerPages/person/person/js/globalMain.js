@@ -46,3 +46,4 @@ const headerBurgerMenu = new responsiveHeader({
   burgerIcon: "burgerIcon",
   burgerIcon_active: "burgerIcon_active",
 });
+;

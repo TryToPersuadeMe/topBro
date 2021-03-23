@@ -11,17 +11,26 @@
     <link rel="stylesheet" href="./css/localMain.css" />
     <title>Explem</title>
   </head>
-  <body>
+  <body class="bodyOverlay">
     <div class="wrapper bg-pink">
       @@include("./_header.html")
       <main>
-        @@include("./_navigationPages.html") @@include("./_personalCard.html") @@include("./_videoGallerySection.html")
-        @@include("./_allBloggersSliderSection.html") @@include("./_footer.html")
+        <div class="container responsiveHeader">
+          <a href="#" class="header__logo header__logo_responsive">
+            <img src="./resources/logotype.svg" alt="логотип топ Бро" />
+          </a>
+          <div class="burgerIcon"><span></span></div>
+        </div>
+
+        <div class="container">@@include("./_navigationPages.html")</div>
+        @@include("./_personalCard.html") @@include("./_videoGallerySection.html") @@include("./_allBloggersSliderSection.html")
+        @@include("./_footer.html")
       </main>
     </div>
     <!-- swiper -->
     <script src="./js/js_plugins/swiper.bundle.min.js"></script>
     <!-- main js -->
-    <script src="./js/main.js"></script>
+    <script src="./js/globalMain.js"></script>
+    <script src="./js/localMain.js"></script>
   </body>
 </html>

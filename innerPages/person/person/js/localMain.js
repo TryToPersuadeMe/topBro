@@ -28,4 +28,3 @@ const watchVideo = () => {
 
 watchVideo();
 ;
-
