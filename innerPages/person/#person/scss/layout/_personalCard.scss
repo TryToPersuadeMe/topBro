@@ -13,6 +13,7 @@
     }
     &:last-child {
       padding-top: 0;
+      padding-bottom: 0;
     }
   }
   &__image {
@@ -39,20 +40,38 @@
   &__text {
     font-size: 16px;
     line-height: 1.6;
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
   }
 
   &__containerInfo {
     max-height: 200px;
-    overflow-y: auto;
-    margin-top: 30px;
+    margin: 30px 0;
     padding: 0 10px 0 0;
     text-align: justify;
+    position: relative;
+  }
+
+  .swiper-scrollbar {
+    background-color: #969696;
+    position: absolute;
+    right: 20px;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: #e5e5e5;
   }
 
   &__containerTitle {
     font-weight: bold;
     font-size: 30px;
     margin-bottom: 20px;
+    line-height: 1.2;
   }
 
   .socialMedia {
@@ -110,7 +129,7 @@
     }
 
     &__containerInfo {
-      padding: 0 20px 0 0;
+      padding: 0 30px 0 0;
     }
 
     .socialMedia {
@@ -152,10 +171,32 @@
 
     &__containerInfo {
       grid-column: 1/2 span;
+      margin: 20px 0;
     }
 
     & > *:not(.personalCard__image) {
       padding: 20px;
+      &:last-child {
+        padding-right: 30px;
+      }
+    }
+
+    .swiper-scrollbar {
+      right: 10px;
+    }
+
+    &__name {
+      font-size: 28px;
+    }
+
+    &__containerTitle {
+      font-size: 24px;
+    }
+
+    .socialMedia {
+      &__counter {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -180,7 +221,6 @@
 
     &__containerInfo {
       padding: 0 10px 0 0;
-      margin-top: 20px;
     }
 
     &__containerTitle {
@@ -196,6 +236,7 @@
         max-width: 32px;
         min-width: 32px;
         height: 32px;
+        margin-right: 10px;
         min-height: 32px;
       }
     }
@@ -218,19 +259,17 @@
       max-width: 280px;
       width: 100%;
       margin: 0 auto;
+      border-radius: 5px;
+      overflow: hidden;
     }
 
     & > *:not(.personalCard__image) {
       padding: 15px;
     }
 
-    &__containerInfo {
-      max-height: auto;
-    }
-
     &__gridSocialMedia {
       grid-column: 1/2 span;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
   }
 }
