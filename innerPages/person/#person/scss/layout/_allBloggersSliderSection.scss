@@ -1,16 +1,9 @@
 .allBloggers {
-  &__container {
-  }
-
   &__slider {
-    padding-bottom: 50px;
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 65px;
     position: relative;
-  }
-
-  .swiper-container {
-  }
-
-  .swiper-wrapper {
   }
 
   .swiper-button-prev,
@@ -20,6 +13,7 @@
     width: 15px;
     height: 15px;
     top: auto;
+    transform: translateY(25%);
     &::after {
       display: none;
     }
@@ -34,17 +28,19 @@
   }
 
   .swiper-button-next {
-    transform: rotate(180deg);
-    right: 35%;
+    transform: translateY(25%) rotate(180deg);
+    right: -15%;
   }
 
   .swiper-button-prev {
-    left: 35%;
+    left: -15%;
   }
 
   .swiper-scrollbar {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
+    margin: 0 auto;
+    justify-content: center;
     z-index: 3;
     max-width: 310px;
     left: 50%;
@@ -54,5 +50,25 @@
 
   .swiper-scrollbar-drag {
     background-color: #e5e5e5;
+  }
+}
+
+@media (max-width: 480px) {
+  .allBloggers {
+    .swiper-button-next,
+    .swiper-button-prev {
+      bottom: -30px;
+    }
+    .swiper-button-next {
+      right: 30%;
+    }
+
+    .swiper-button-prev {
+      left: 30%;
+    }
+
+    .swiper-scrollbar {
+      bottom: 30px;
+    }
   }
 }

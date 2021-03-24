@@ -43,6 +43,7 @@
 }
 .bg-pink {
   background-color: #6e105e;
+  background-color: transparent;
 }
 
 @media (max-width: 900px) {
@@ -67,4 +68,22 @@
       }
     }
   }
+}
+
+@media (max-width: 600px) {
+  .bodyOverlay {
+    &::after {
+      width: 20%;
+    }
+  }
+}
+
+#backgroundThreeJS {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 303;
+}
+body {
+  // display: none;
 }

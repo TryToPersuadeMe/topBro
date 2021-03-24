@@ -11,7 +11,9 @@
     <link rel="stylesheet" href="./css/localMain.css" />
     <title>Explem</title>
   </head>
+
   <body class="bodyOverlay">
+    <div id="particles-js"></div>
     <div class="wrapper bg-pink">
       @@include("./_header.html")
       <main>
@@ -22,14 +24,16 @@
           <div class="burgerIcon"><span></span></div>
         </div>
 
-        <div class="container">@@include("./_navigationPages.html")</div>
-        @@include("./_personalCard.html") @@include("./_videoGallerySection.html") @@include("./_allBloggersSliderSection.html")
-        @@include("./_footer.html")
+        @@include("./_navigationPages.html") @@include("./_personalCard.html") @@include("./_videoGallerySection.html")
+        @@include("./_allBloggersSliderSection.html") @@include("./_footer.html")
       </main>
     </div>
-    <!-- swiper -->
     <script src="./js/js_plugins/swiper.bundle.min.js"></script>
-    <!-- main js -->
+
+    <script src="./js/js_plugins/particles.js"></script>
+    <script src="./js/js_plugins/app.js"></script>
+
+
     <script src="./js/globalMain.js"></script>
     <script src="./js/localMain.js"></script>
   </body>
