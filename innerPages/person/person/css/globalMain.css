@@ -286,7 +286,7 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    padding: 30px;
+    padding: 30px 80px;
     overflow-y: auto;
     position: relative;
     -ms-flex-pack: distribute;
