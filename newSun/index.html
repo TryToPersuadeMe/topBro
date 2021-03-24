@@ -4,25 +4,11 @@
     <title>three.js webgl - shaders - sky sun shader</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <div>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae porro iure voluptatem et ipsa reiciendis vitae vero
-      maxime, nisi alias. Temporibus laborum ducimus iusto animi facere atque doloremque cum et?
-    </div>
-    <style>
-      body {
-        margin: 0;
-      }
-      div {
-        color: white;
-      }
-      canvas {
-        position: absolute;
-        top: 0;
-        z-index: -1;
-      }
-    </style>
+    <script src="./sky.js" type="module"></script>
+
     <script>
       const noise = `
     float N21 (vec2 st) { // https://thebookofshaders.com/10/
@@ -75,6 +61,7 @@
     }
   `;
     </script>
-    <script src="./main.js" type="module"></script>
+
+    <script src="./mountains.js" type="module"></script>
   </body>
 </html>

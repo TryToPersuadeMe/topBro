@@ -1,9 +1,8 @@
-import * as THREE from "./three.module.js";
+import * as THREE from "https://unpkg.com/three@0.126.1/build/three.module.js";
 
 import { GUI } from "https://unpkg.com/three@0.126.1/examples/jsm/libs/dat.gui.module.js";
-import { OrbitControls } from "https://unpkg.com/three@0.124.0/examples/jsm/controls/OrbitControls.js";
-import { Sky } from "./sky.js";
-import { SimplexNoise } from "./simplexNoise.js";
+import { OrbitControls } from "https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js";
+import { Sky } from "https://unpkg.com/three@0.126.1/examples/jsm/objects/Sky.js";
 
 let camera, scene, renderer;
 
@@ -15,7 +14,7 @@ render();
 function initSky() {
   // Add Sky
   sky = new Sky();
-  sky.scale.setScalar(200000);
+  sky.scale.setScalar(450000);
   scene.add(sky);
 
   sun = new THREE.Vector3();
@@ -23,11 +22,11 @@ function initSky() {
   /// GUI
 
   const effectController = {
-    turbidity: 30,
+    turbidity: 10,
     rayleigh: 3,
     mieCoefficient: 0.005,
-    mieDirectionalG: 0,
-    inclination: 0.499528, // elevation / inclination
+    mieDirectionalG: 0.7,
+    inclination: 0.49, // elevation / inclination
     azimuth: 0.25, // Facing front,
     exposure: renderer.toneMappingExposure,
   };
@@ -66,28 +65,25 @@ function initSky() {
 }
 
 function init() {
-  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 1000);
-  camera.position.set(0, 240, 400);
+  camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 100, 2000000);
+  camera.position.set(0, 100, 2000);
 
   scene = new THREE.Scene();
 
-  const light = new THREE.AmbientLight(0x404040); // soft white light
-  scene.add(light);
-
-  // const helper = new THREE.GridHelper(1000, 25, 0x95f2f2, 0x95f2f2);
-  // scene.add(helper);
+  const helper = new THREE.GridHelper(10000, 2, 0xffffff, 0xffffff);
+  scene.add(helper);
 
   renderer = new THREE.WebGLRenderer();
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-  // renderer.outputEncoding = THREE.sRGBEncoding;
-  // renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 0.4;
+  renderer.outputEncoding = THREE.sRGBEncoding;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.5;
   document.body.appendChild(renderer.domElement);
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.addEventListener("change", render);
-  controls.maxPolarAngle = Math.PI / 1.5;
+  //controls.maxPolarAngle = Math.PI / 2;
   controls.enableZoom = false;
   controls.enablePan = false;
 
@@ -108,4 +104,3 @@ function onWindowResize() {
 function render() {
   renderer.render(scene, camera);
 }
-/* https://customizer.github.io/three.js-doc.ru/three.js-ru.htm */
