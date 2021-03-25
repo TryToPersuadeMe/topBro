@@ -456,6 +456,7 @@ input[type="search"]::-webkit-search-results-decoration {
   color: #eff3f5;
   margin-bottom: 15px;
   font-weight: 600;
+  line-height: 1.2;
   margin-right: 25px;
 }
 
@@ -522,7 +523,9 @@ input[type="search"]::-webkit-search-results-decoration {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    width: 100%;
     margin: 20px 0;
+    text-align: center;
   }
   .footer .socialMedia {
     margin: 0;
