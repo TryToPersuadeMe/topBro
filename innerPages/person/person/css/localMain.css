@@ -1501,7 +1501,7 @@ button.swiper-pagination-bullet {
   border: 2px solid #eff3f5;
 }
 
-.getFeedBack__input::-webkit-input-placeholder {
+.getFeedBack__input ::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -1510,7 +1510,7 @@ button.swiper-pagination-bullet {
   opacity: 0.5;
 }
 
-.getFeedBack__input::-moz-placeholder {
+.getFeedBack__input ::-moz-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -1519,7 +1519,7 @@ button.swiper-pagination-bullet {
   opacity: 0.5;
 }
 
-.getFeedBack__input:-ms-input-placeholder {
+.getFeedBack__input :-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -1528,7 +1528,7 @@ button.swiper-pagination-bullet {
   opacity: 0.5;
 }
 
-.getFeedBack__input::-ms-input-placeholder {
+.getFeedBack__input ::-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -1537,7 +1537,7 @@ button.swiper-pagination-bullet {
   opacity: 0.5;
 }
 
-.getFeedBack__input::placeholder {
+.getFeedBack__input ::placeholder {
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
@@ -1597,19 +1597,19 @@ button.swiper-pagination-bullet {
     padding-right: 20px;
     font-size: 14px;
   }
-  .getFeedBack__input::-webkit-input-placeholder {
+  .getFeedBack__input ::-webkit-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input::-moz-placeholder {
+  .getFeedBack__input ::-moz-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input:-ms-input-placeholder {
+  .getFeedBack__input :-ms-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input::-ms-input-placeholder {
+  .getFeedBack__input ::-ms-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input::placeholder {
+  .getFeedBack__input ::placeholder {
     font-size: 14px;
   }
   .getFeedBack__button {
