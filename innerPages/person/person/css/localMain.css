@@ -744,8 +744,8 @@ button.swiper-pagination-bullet {
   display: grid;
   grid-template-columns: 410px auto;
   border: 1px solid #eff3f5;
-  -webkit-backdrop-filter: blur(10px);
-          backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   color: #eff3f5;
 }
 
@@ -827,14 +827,14 @@ button.swiper-pagination-bullet {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .personalCard .socialMedia__icon {
   margin-right: 20px;
   max-width: 64px;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
   min-width: 64px;
   height: 64px;
   min-height: 64px;
@@ -1105,6 +1105,8 @@ button.swiper-pagination-bullet {
   background-color: black;
   position: fixed;
   z-index: 301;
+  top: 0;
+  left: 0;
 }
 
 /* components */
@@ -1156,7 +1158,21 @@ button.swiper-pagination-bullet {
   overflow: hidden;
 }
 
-.previewCard:hover > .previewCard__image {
+.previewCard * {
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.previewCard:hover:after {
+  opacity: 0;
+}
+
+.previewCard:hover > *:not(.previewCard__image) {
+  opacity: 0;
+}
+
+.previewCard:hover .previewCard__image {
   -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
           transform: scale(1.1);
@@ -1167,6 +1183,9 @@ button.swiper-pagination-bullet {
   background-color: #bd1c9f;
   opacity: 0.5;
   position: absolute;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
   top: 0;
   left: 0;
   display: block;
@@ -1285,12 +1304,32 @@ button.swiper-pagination-bullet {
   z-index: 4;
 }
 
+.videoCard::before {
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../resources/icons/play-icon.svg");
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 50%;
+  -webkit-transform: translate(-50%, -25%);
+      -ms-transform: translate(-50%, -25%);
+          transform: translate(-50%, -25%);
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+  width: 26px;
+  height: 30px;
+  z-index: 3;
+}
+
 .videoCard::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  cursor: url("../resources/icons/cursor/active.svg") 32 32, pointer;
   width: 100%;
   height: 100%;
   background: rgba(110, 16, 94, 0.25);
@@ -1303,40 +1342,25 @@ button.swiper-pagination-bullet {
           transform: scale(1.1);
 }
 
+.videoCard:hover::before {
+  -webkit-transform: translate(-50%, -25%) scale(1.5);
+      -ms-transform: translate(-50%, -25%) scale(1.5);
+          transform: translate(-50%, -25%) scale(1.5);
+}
+
 .videoCard.active .videoCard__iframeVideo {
   z-index: 5;
 }
 
-.videoCard iframe,
 .videoCard img {
   display: block;
   min-width: 100%;
   min-height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.videoCard img {
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.videoCard__playVideoIcon {
-  position: absolute;
-  top: 50%;
-  cursor: pointer;
-  left: 50%;
-  height: 50%;
-  -webkit-transform: translate(-50%, -25%);
-      -ms-transform: translate(-50%, -25%);
-          transform: translate(-50%, -25%);
-  -webkit-transition: 0.5s ease;
-  -o-transition: 0.5s ease;
-  transition: 0.5s ease;
-  width: 26px;
-  height: 30px;
-  z-index: 3;
 }
 
 .videoCard__playVideoIcon img {
@@ -1357,5 +1381,3 @@ button.swiper-pagination-bullet {
   transition: 0.3s ease;
   z-index: 2;
 }
-
-/* pages */

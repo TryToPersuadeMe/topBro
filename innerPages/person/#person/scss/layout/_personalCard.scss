@@ -4,7 +4,7 @@
   display: grid;
   grid-template-columns: 410px auto;
   border: 1px solid #eff3f5;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(2px);
   color: #eff3f5;
   & > *:not(.personalCard__image) {
     padding: 30px 40px;
@@ -76,10 +76,11 @@
 
   .socialMedia {
     display: flex;
-    align-items: center;
+
     &__icon {
       margin-right: 20px;
       max-width: 64px;
+      transition: 0.3s ease;
       min-width: 64px;
       height: 64px;
       min-height: 64px;

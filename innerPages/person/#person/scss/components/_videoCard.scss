@@ -9,51 +9,61 @@
   height: 0;
   padding-bottom: 50%;
   z-index: 4;
+
+  &::before {
+    content: "";
+    @include backgroundImage("../resources/icons/play-icon.svg", contain);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -25%) ;
+    transition: 0.5s ease;
+    width: 26px;
+    height: 30px;
+    z-index: 3;
+  }
+
   &::after {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
-    cursor: url("../resources/icons/cursor/active.svg") 32 32, pointer;
     width: 100%;
     height: 100%;
     background: rgba(110, 16, 94, 0.25);
     z-index: 3;
   }
-  &:hover > &__prevueImage {
-    transform: scale(1.1);
+
+  &:hover {
+    $this: ".videoCard";
+
+    & > #{$this}__prevueImage {
+      transform: scale(1.1);
+    }
+
+    &::before {
+      transform: translate(-50%, -25%) scale(1.5);
+    }
   }
+
   &.active {
     .videoCard__iframeVideo {
       z-index: 5;
     }
   }
 
-  iframe,
   img {
     display: block;
     min-width: 100%;
     min-height: 100%;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
   }
-  img {
-    object-fit: cover;
-  }
 
   &__playVideoIcon {
-    position: absolute;
-    top: 50%;
-    cursor: pointer;
-    left: 50%;
-    height: 50%;
-    transform: translate(-50%, -25%);
-    transition: 0.5s ease;
-    width: 26px;
-    height: 30px;
-    z-index: 3;
-
     img {
       width: 100%;
       height: 100%;

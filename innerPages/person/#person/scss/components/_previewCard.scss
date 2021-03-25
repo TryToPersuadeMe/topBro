@@ -10,8 +10,23 @@
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  &:hover > &__image {
-    transform: scale(1.1);
+
+  * {
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    &:after {
+      opacity: 0;
+    }
+
+    & > *:not(.previewCard__image) {
+      opacity: 0;
+    }
+
+    .previewCard__image {
+      transform: scale(1.1);
+    }
   }
 
   &::after {
@@ -19,6 +34,7 @@
     background-color: #bd1c9f;
     opacity: 0.5;
     position: absolute;
+    transition: 0.3s ease;
     top: 0;
     left: 0;
     display: block;
