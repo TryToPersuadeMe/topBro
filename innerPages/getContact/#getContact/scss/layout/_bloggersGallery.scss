@@ -1,0 +1,19 @@
+.bloggersGallery {
+  &__container {
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__gridWrapper {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 50px;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+  }
+
+  &__previewCard {
+  }
+}

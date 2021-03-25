@@ -632,3 +632,34 @@ input[type="search"]::-webkit-search-results-decoration {
     height: 60px;
   }
 }
+
+.sectionTitle {
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #eff3f5;
+  text-align: center;
+}
+
+.sectionTitle_defaultMarginBottom {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 24px;
+  }
+}

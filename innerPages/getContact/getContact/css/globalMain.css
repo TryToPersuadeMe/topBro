@@ -8,6 +8,7 @@
 /* for z-index layers */
 /* base */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 /*Обнуление*/
 * {
   padding: 0;
@@ -630,5 +631,36 @@ input[type="search"]::-webkit-search-results-decoration {
   .pointer.hide .pointer__circle:after {
     width: 60px;
     height: 60px;
+  }
+}
+
+.sectionTitle {
+  font-family: Montserrat;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 1.2;
+  color: #eff3f5;
+  text-align: center;
+}
+
+.sectionTitle_defaultMarginBottom {
+  margin-bottom: 50px;
+}
+
+@media (max-width: 1024px) {
+  .sectionTitle {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 24px;
   }
 }
