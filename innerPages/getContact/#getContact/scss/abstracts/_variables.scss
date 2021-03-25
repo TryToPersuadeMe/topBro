@@ -7,9 +7,10 @@ $body-html-px: 10px;
  */
 
 $z-layers: (
-  // bottomless-pit: -9999,
+  popUp-Feedback: 350,
+  bodyOverlay-fullWidth: 349,
   overLay: 304,
   header: 305,
   burgerIcon: 305,
-  wrapper: 303
+  wrapper: 303,
 );

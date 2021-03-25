@@ -10,6 +10,18 @@
   padding-bottom: 50%;
   z-index: 4;
 
+  img,
+  source {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s ease;
+  }
+
   &::before {
     content: "";
     @include backgroundImage("../resources/icons/play-icon.svg", contain);
@@ -17,7 +29,7 @@
     top: 50%;
     left: 50%;
     height: 50%;
-    transform: translate(-50%, -25%) ;
+    transform: translate(-50%, -25%);
     transition: 0.5s ease;
     width: 26px;
     height: 30px;
@@ -38,46 +50,13 @@
   &:hover {
     $this: ".videoCard";
 
-    & > #{$this}__prevueImage {
+    img,
+    source {
       transform: scale(1.1);
     }
 
     &::before {
       transform: translate(-50%, -25%) scale(1.5);
     }
-  }
-
-  &.active {
-    .videoCard__iframeVideo {
-      z-index: 5;
-    }
-  }
-
-  img {
-    display: block;
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-  &__playVideoIcon {
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__prevueImage {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transition: 0.3s ease;
-    z-index: 2;
   }
 }

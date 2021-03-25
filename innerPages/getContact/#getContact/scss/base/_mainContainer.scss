@@ -36,7 +36,6 @@
   }
 }
 
-
 @media (max-width: 900px) {
   .bodyOverlay {
     position: relative;
@@ -69,9 +68,18 @@
   }
 }
 
-#backgroundThreeJS {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 303;
+.bodyOverlay-fullWidth {
+  overflow: hidden;
+  &::after {
+    content: "";
+    transition: 0.6s ease;
+    min-height: 100vh;
+    top: 0;
+    min-width: 100%;
+    left: 0%;
+    position: fixed;
+    display: block;
+    z-index: z(bodyOverlay-fullWidth);
+    background-color: rgba(0, 0, 0, 0.8);
+  }
 }

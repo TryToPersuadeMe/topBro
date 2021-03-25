@@ -1501,46 +1501,41 @@ button.swiper-pagination-bullet {
   border: 2px solid #eff3f5;
 }
 
-.getFeedBack__input ::-webkit-input-placeholder {
+.getFeedBack__input::-webkit-input-placeholder {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #eff3f5;
   opacity: 0.5;
 }
 
-.getFeedBack__input ::-moz-placeholder {
+.getFeedBack__input::-moz-placeholder {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #eff3f5;
   opacity: 0.5;
 }
 
-.getFeedBack__input :-ms-input-placeholder {
+.getFeedBack__input:-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #eff3f5;
   opacity: 0.5;
 }
 
-.getFeedBack__input ::-ms-input-placeholder {
+.getFeedBack__input::-ms-input-placeholder {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #eff3f5;
   opacity: 0.5;
 }
 
-.getFeedBack__input ::placeholder {
+.getFeedBack__input::placeholder {
   font-weight: 500;
   font-size: 16px;
-  line-height: 1.2;
   letter-spacing: 0.05em;
   color: #eff3f5;
   opacity: 0.5;
