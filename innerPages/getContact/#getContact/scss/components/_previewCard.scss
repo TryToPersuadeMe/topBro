@@ -1,0 +1,136 @@
+.previewCard {
+  position: relative;
+  // max-width: 310px;
+  width: 100%;
+  height: 310px;
+  font-family: Montserrat;
+  color: #eff3f5;
+  z-index: 4;
+  padding: 10px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+
+  * {
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    &:after {
+      opacity: 0;
+    }
+
+    & > *:not(.previewCard__image) {
+      opacity: 0;
+    }
+
+    .previewCard__image {
+      transform: scale(1.1);
+    }
+  }
+
+  &::after {
+    content: "";
+    background-color: #bd1c9f;
+    opacity: 0.5;
+    position: absolute;
+    transition: 0.3s ease;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+  }
+  &__image {
+    width: 100%;
+    transition: 0.3s ease;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    z-index: 2;
+    img,
+    source {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__name {
+    font-weight: bold;
+    font-size: 30px;
+    grid-column: 1/2 span;
+    line-height: 1.2;
+  }
+
+  &__gridWrapper {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+    gap: 10px;
+    & > :nth-child(odd):not(:first-child) {
+      justify-self: end;
+    }
+  }
+
+  &__socialMediaLine {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__socialMediaIcon {
+    margin-right: 10px;
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+    img,
+    source {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .previewCard {
+    height: 360px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .previewCard {
+    &__name {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .previewCard {
+    &__name {
+      font-size: 20px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .previewCard {
+    height: 310px;
+  }
+}
+
+@media (max-width: 600px) {
+  .previewCard {
+    // max-width: 300px;
+  }
+}

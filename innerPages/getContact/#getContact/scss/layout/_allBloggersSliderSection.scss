@@ -1,0 +1,74 @@
+.allBloggers {
+  &__slider {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 65px;
+    position: relative;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: absolute;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    top: auto;
+    transform: translateY(25%);
+    &::after {
+      display: none;
+    }
+
+    &::before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      @include backgroundImage("../resources/icons/arrowSide-icon.svg", contain);
+    }
+  }
+
+  .swiper-button-next {
+    transform: translateY(25%) rotate(180deg);
+    right: -15%;
+  }
+
+  .swiper-button-prev {
+    left: -15%;
+  }
+
+  .swiper-scrollbar {
+    position: absolute;
+    bottom: 10px;
+    margin: 0 auto;
+    justify-content: center;
+    z-index: 3;
+    max-width: 310px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #969696;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: #e5e5e5;
+  }
+}
+
+@media (max-width: 480px) {
+  .allBloggers {
+    .swiper-button-next,
+    .swiper-button-prev {
+      bottom: -30px;
+    }
+    .swiper-button-next {
+      right: 30%;
+    }
+
+    .swiper-button-prev {
+      left: 30%;
+    }
+
+    .swiper-scrollbar {
+      bottom: 30px;
+    }
+  }
+}

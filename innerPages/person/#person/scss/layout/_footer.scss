@@ -40,14 +40,18 @@
 
   .socialMedia {
     justify-content: center;
-    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28px, auto));
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
     &__item {
-      display: inline-block;
-      &:not(:last-of-type) {
-        margin-right: 30px;
-      }
-      width: 32px;
       height: 32px;
+      width: 32px;
+      transition: 0.3s ease;
+      &:hover {
+        transform: scale(1.25);
+      }
       img,
       source {
         width: 100%;
@@ -75,7 +79,7 @@
 
     .socialMedia {
       position: absolute;
-      bottom: 20px;
+      bottom: 10px;
       left: 50%;
       transform: translateX(-50%);
     }
@@ -98,10 +102,7 @@
     .socialMedia {
       margin: 0;
       position: static;
-      justify-content: center;
-      display: flex;
       width: 100%;
-      justify-content: center;
       text-align: center;
     }
 

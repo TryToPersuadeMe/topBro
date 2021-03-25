@@ -1,0 +1,15 @@
+// Sass Variables
+$body-html-px: 10px;
+
+/* exemple - .overlay {
+  z-index: z(overlay);
+}
+ */
+
+$z-layers: (
+  // bottomless-pit: -9999,
+  overLay: 304,
+  header: 305,
+  burgerIcon: 305,
+  wrapper: 303
+);
