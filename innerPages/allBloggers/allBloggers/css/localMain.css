@@ -131,12 +131,6 @@
      object-fit: contain;
 }
 
-@media (max-width: 1200px) {
-  .previewCard {
-    height: 360px;
-  }
-}
-
 @media (max-width: 1024px) {
   .previewCard__name {
     font-size: 24px;
@@ -475,7 +469,7 @@
 }
 
 .select.open {
-  z-index: 2;
+  z-index: 5;
 }
 
 .select.open .select__dropdown {
@@ -517,7 +511,7 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 50px;
+  height: 30px;
   border-radius: 5px;
 }
 
@@ -538,8 +532,8 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-image: url("../resources/icons/arrowSide-icon.svg");
-  width: 30px;
-  height: 30px;
+  width: 15px;
+  height: 15px;
   -webkit-transform: rotate(-90deg);
       -ms-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -551,7 +545,7 @@
   -o-transition: 0.3s ease;
   transition: 0.3s ease;
   border-radius: 5px;
-  top: 50px;
+  top: 30px;
   left: 0;
   opacity: 0;
   visibility: hidden;
@@ -646,8 +640,12 @@
   left: 0;
 }
 
+.bloggersGallery__container {
+  min-height: 100vh;
+}
+
 .bloggersGallery__title {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .bloggersGallery__gridWrapper {
@@ -656,6 +654,8 @@
      -moz-column-gap: 20px;
           column-gap: 20px;
   row-gap: 50px;
+  padding-top: 30px;
+  padding-bottom: 50px;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -667,10 +667,16 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.sortButtons > * {
+  margin-top: 20px;
 }
 
 .sortButtons__title {

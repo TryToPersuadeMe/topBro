@@ -1,8 +1,12 @@
 .sortButtons {
   color: #eff3f5;
   display: inline-flex;
+  flex-wrap: wrap;
   width: 100%;
   align-items: center;
+  & > * {
+    margin-top: 20px;
+  }
   &__title {
     font-weight: 600;
     font-size: 20px;

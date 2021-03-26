@@ -4,7 +4,7 @@
   max-width: 450px;
   /* when select open add class OPEN */
   &.open {
-    z-index: 2;
+    z-index: 5;
     .select__dropdown {
       opacity: 1;
       max-height: 200px;
@@ -53,8 +53,8 @@
     position: relative;
     z-index: -1;
     @include backgroundImage("../resources/icons/arrowSide-icon.svg", contain);
-    width: 30px;
-    height: 30px;
+    width: 15px;
+    height: 15px;
     transform: rotate(-90deg);
   }
 

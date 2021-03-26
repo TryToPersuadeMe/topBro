@@ -1,15 +1,18 @@
 .bloggersGallery {
   &__container {
+    min-height: 100vh;
   }
 
   &__title {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
   }
 
   &__gridWrapper {
     display: grid;
     column-gap: 20px;
     row-gap: 50px;
+    padding-top: 30px;
+    padding-bottom: 50px;
     justify-content: center;
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
   }
