@@ -1,0 +1,24 @@
+.allBloggers {
+  &__slider {
+    max-width: 100%;
+    width: 100%;
+    padding-bottom: 65px;
+    position: relative;
+  }
+}
+
+@media (max-width: 480px) {
+  .allBloggers {
+    .swiper-button-next,
+    .swiper-button-prev {
+      bottom: -30px;
+    }
+    .swiper-button-next {
+      right: 30%;
+    }
+
+    .swiper-button-prev {
+      left: 30%;
+    }
+  }
+}

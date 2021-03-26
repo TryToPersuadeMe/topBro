@@ -8,16 +8,14 @@
   }
 
   &__gridWrapper {
-    display: grid;
     column-gap: 20px;
     row-gap: 50px;
+    padding-bottom: 30px;
     padding-top: 30px;
-    padding-bottom: 50px;
+    display: grid;
     justify-content: center;
     justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
-  }
 
-  &__previewCard {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
   }
 }

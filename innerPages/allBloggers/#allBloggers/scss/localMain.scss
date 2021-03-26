@@ -4,7 +4,7 @@
 @import "./abstracts/functions.scss";
 
 /* vendors - code from side sources and Libraries */
-// @import "./vendors/animate.scss";
+@import "./vendors/animate.min.scss";
 
 /* components */
 @import "./components/previewCard.scss";
@@ -16,3 +16,4 @@
 @import "./layout/_particles-js.scss";
 @import "./layout/bloggersGallery";
 @import "./layout/sortButtons.scss";
+@import "./layout/downLoad.scss";

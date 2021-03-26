@@ -1,0 +1,21 @@
+/* abstracts */
+@import "./abstracts/mixins.scss";
+@import "./abstracts/variables.scss";
+@import "./abstracts/functions.scss";
+
+/* vendors - code from side sources and Libraries */
+// @import "./vendors/animate.scss";
+@import "./vendors/swiper.scss";
+
+/* layout */
+@import "./layout/_navigationPages.scss";
+@import "./layout/_caseCard.scss";
+@import "./layout/allBloggersSliderSection.scss";
+@import "./layout/_particles-js.scss";
+@import "./layout/otherCasesSlider.scss";
+
+/* components */
+@import "./components/previewCard.scss";
+@import "./components/videoCard.scss";
+@import "./components/getFeedBackFom.scss";
+@import "./components/customScrollbar.scss";

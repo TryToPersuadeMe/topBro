@@ -1,0 +1,40 @@
+.navigationPages {
+  margin-bottom: 40px;
+
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__link {
+    font-weight: 300;
+    font-size: 14px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    &:not(:last-of-type) {
+      color: #eff3f5;
+      position: relative;
+      &::after {
+        content: "/";
+        position: absolute;
+        transform: translateX(50%);
+        right: -10px;
+        cursor: default;
+      }
+    }
+
+    &:last-of-type {
+      background: #eff3f5;
+      opacity: 0.8;
+      border-radius: 20px;
+      padding: 2px 10px;
+      color: rgba(110, 16, 94, 1);
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .navigationPages {
+    margin-bottom: 20px;
+  }
+}

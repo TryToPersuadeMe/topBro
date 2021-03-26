@@ -1,0 +1,302 @@
+.personalCard {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.3);
+  display: flex;
+  border: 1px solid #eff3f5;
+  backdrop-filter: blur(2px);
+  color: #eff3f5;
+
+  & > *:not(.personalCard__slider) {
+  }
+  &__slider {
+    max-width: 410px;
+  }
+
+  &__column {
+    padding: 30px 40px 0 40px;
+    & > * {
+      padding-bottom: 30px;
+    }
+
+    & > *:not(:last-child) {
+      border-bottom: 1px solid #eff3f5;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 1.6;
+    &:not(:last-of-type) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__containerInfo {
+    max-height: 200px;
+    margin: 30px 0;
+    padding: 0 30px 0 0;
+    text-align: justify;
+    position: relative;
+  }
+
+  .swiper-scrollbar {
+    background-color: #969696;
+    position: absolute;
+    right: 0px;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-scrollbar-drag {
+    background-color: #e5e5e5;
+  }
+
+  &__containerTitle {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .socialMedia {
+    &__statsWrapper {
+      display: flex;
+    }
+
+    .personalCard__text {
+      margin-bottom: 10px;
+    }
+
+    &__stats {
+      font-weight: 600;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      &:not(:last-of-type) {
+        margin-right: 25px;
+      }
+
+      &_like,
+      &_message {
+        &::before {
+          content: "";
+          width: 24px;
+          height: 24px;
+          margin-right: 8px;
+        }
+      }
+
+      &_message {
+        &::before {
+          @include backgroundImage("../resources/icons/message-icon.svg", contain);
+        }
+      }
+      &_like {
+        &::before {
+          @include backgroundImage("../resources/icons/thumbUp-icon.svg", contain);
+        }
+      }
+    }
+
+    &__counter {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+  }
+}
+
+.cases {
+  width: 100%;
+  max-width: 100%;
+  padding-bottom: 60px;
+  position: relative;
+  .swiper-pagination {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+  }
+
+  .swiper-pagination-bullet {
+    background: #cfcfcf;
+    opacity: 1;
+    width: 14px;
+    height: 14px;
+    transform: scale(0.6);
+  }
+
+  .swiper-pagination-bullet-active {
+    transform: scale(1);
+    background: #eff3f5;
+    position: relative;
+    &::after {
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 100%;
+      background: #6e105e;
+      position: absolute;
+      display: block;
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .videoCard {
+    padding-bottom: 76%;
+    max-width: 100%;
+    width: 410px;
+    &::before {
+      width: 55px;
+      height: 55px;
+    }
+
+    &:hover {
+      &::before {
+        transform: translate(-50%, -25%) scale(1.3);
+      }
+    }
+  }
+}
+
+.pagesAnchorNavigation {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 50px;
+  * > * {
+    color: #eff3f5;
+  }
+
+  & > *:first-child {
+    margin-right: 100px;
+  }
+  &__link {
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  &__arrow {
+    margin-bottom: 10px;
+    display: block;
+    &_left {
+      img,
+      source {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__text {
+  }
+}
+
+@media (max-width: 1024px) {
+  .personalCard {
+    &__slider {
+      max-width: 350px;
+    }
+    &__text {
+      font-size: 14px;
+    }
+
+    &__containerInfo {
+      padding: 0 30px 0 0;
+    }
+
+    .videoCard {
+      padding-bottom: 76%;
+    }
+
+    .socialMedia {
+      &__counter {
+        font-size: 24px;
+      }
+
+      &__stats {
+        font-size: 16px;
+        &::before {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .personalCard {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+
+    &__containerInfo {
+      margin: 20px 0;
+    }
+
+    &__column {
+      padding: 20px 30px 0 30px;
+
+      & > * {
+        padding-bottom: 20px;
+      }
+    }
+
+    .videoCard {
+      border-radius: 12px;
+    }
+
+    &__containerTitle {
+      font-size: 24px;
+    }
+
+    .socialMedia {
+      text-align: center;
+      &__statsWrapper {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .personalCardFrameContainer {
+    padding: 0;
+  }
+
+  .personalCard {
+    &__slider {
+      max-width: 250px;
+    }
+
+    &__column {
+      padding: 0px 20px 0 20px;
+      & > * {
+        padding-bottom: 20px;
+      }
+    }
+
+    .socialMedia {
+      &__counter {
+        font-size: 20px;
+      }
+
+      &__stats {
+        font-size: 14px;
+      }
+    }
+
+    &__containerInfo {
+      padding: 0 20px 0 0;
+    }
+  }
+}
