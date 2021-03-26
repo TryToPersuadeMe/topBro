@@ -117,14 +117,9 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 480px) {
   .previewCard {
-    height: 310px;
-  }
-}
-
-@media (max-width: 600px) {
-  .previewCard {
-    // max-width: 300px;
+    max-width: 280px;
+    height: 280px;
   }
 }

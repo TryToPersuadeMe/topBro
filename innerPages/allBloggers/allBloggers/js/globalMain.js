@@ -90,7 +90,6 @@ function trackMouse(hover, pointer) {
     });
   }
   document.onmousemove = follow;
-  console.log($hover);
 
   (function hoverable() {
     $hover.forEach(function (item) {

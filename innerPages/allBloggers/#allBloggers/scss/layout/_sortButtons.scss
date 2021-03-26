@@ -19,3 +19,11 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .sortButtons {
+    &__title {
+      font-size: 18px;
+    }
+  }
+}

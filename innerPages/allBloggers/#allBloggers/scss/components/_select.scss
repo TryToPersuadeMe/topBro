@@ -1,19 +1,27 @@
+/* select */
+$height: 30px;
+$minWidth: 225px;
+
 .select {
   position: relative;
+
   // min-width: 200px;
   max-width: 450px;
   /* when select open add class OPEN */
   &.open {
     z-index: 5;
+
     .select__dropdown {
       opacity: 1;
-      max-height: 200px;
-      padding: 10px;
-      visibility: visible;
-    }
 
-    .select__label {
-      border-bottom: none;
+      visibility: visible;
+      scrollbar-width: none;
+      /* хром, сафари */
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+      /* ie 10+ */
+      -ms-overflow-style: none;
     }
 
     .select__arrow {
@@ -66,14 +74,39 @@
     left: 0;
     opacity: 0;
     visibility: hidden;
-    max-height: 0px;
+
     overflow-y: auto;
     width: 100%;
-    background: rgba(110, 16, 94, 0.5);
+    background: rgba(110, 16, 94, 1);
     box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(20px);
     border-radius: 12px;
-    min-width: 225px;
+    min-width: $minWidth;
+  }
+
+  &__scrollIcon {
+    background: rgba(110, 16, 94, 1);
+    max-width: 100%;
+    width: 100%;
+    height: 30px;
+    display: block;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    box-shadow: inset 0px 0px 5px 5px rgba(255, 255, 255, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    &.active {
+      display: flex;
+    }
+    img,
+    source {
+      width: 15px;
+      height: 15px;
+      object-fit: contain;
+      transform: rotate(-90deg);
+    }
   }
 
   &__list {
@@ -83,7 +116,8 @@
   }
 
   &__item {
-    padding: 1rem;
+    padding: 10px 20px;
+
     font-family: Roboto;
     transition: 0.3s ease;
     font-size: 16px;

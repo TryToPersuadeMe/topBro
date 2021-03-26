@@ -13,37 +13,45 @@ class Select {
     this.$visibleLabelText = this.$select.querySelector(".select__visibleText");
     this.$hiddenInput = this.$select.querySelector(".select__input");
 
+    this.$dropdown = this.$select.querySelector(".select__dropdown");
+    this.$list = this.$select.querySelector(".select__list");
     this.$label = this.$select.querySelector(".select__label");
+    this.$scrollIcon = this.$select.querySelector(".select__scrollIcon");
 
     this.$body = document.querySelector("body");
-
+    this.maxHeight = 230;
     this.handleClick();
+    this.closeState(this.maxHeight);
     this.hanldeClickWindow();
   }
 
-  openState() {
-    console.log("open");
+  openState(maxHeight) {
     this.$select.classList.add("open");
+    this.$dropdown.style.maxHeight = maxHeight + "px";
+    this.addScrollIcon();
   }
 
   closeState() {
-    console.log("close");
     this.$select.classList.remove("open");
+    this.$dropdown.style.maxHeight = "0px";
   }
 
   /* open/close dropdown list */
   toggleState() {
     if (this.$select.classList.contains("open")) {
       this.closeState();
-      console.log("click on object");
     } else {
-      this.openState();
+      this.openState(this.maxHeight);
     }
+  }
+
+  addScrollIcon() {
+    let list_height = this.$list.offsetHeight;
+    if (list_height > this.maxHeight) this.$scrollIcon.classList.add("active");
   }
 
   handleClick() {
     this.$select.addEventListener("mouseup", () => {
-      console.log(event.target);
       this.toggleState();
       this.handleValue();
     });
@@ -51,7 +59,7 @@ class Select {
 
   /* change value of input */
   handleValue() {
-    if (event.target != this.$label) {
+    if (event.target.classList.contains("select__item")) {
       this.$visibleLabelText.innerText = event.target.innerText;
       this.$hiddenInput.value = this.$visibleLabelText.innerText;
       this.$hiddenInput.setAttribute("name", this.$visibleLabelText.innerText);
@@ -60,9 +68,10 @@ class Select {
 
   hanldeClickWindow() {
     window.addEventListener("click", () => {
+      console.log(document.querySelectorAll(".select__dropdown"));
+
       if (event.target != this.$label && event.target != this.$hiddenInput) {
         this.closeState();
-        console.log(event.target);
       }
     });
   }
