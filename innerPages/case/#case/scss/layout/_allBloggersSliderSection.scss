@@ -6,19 +6,3 @@
     position: relative;
   }
 }
-
-@media (max-width: 480px) {
-  .allBloggers {
-    .swiper-button-next,
-    .swiper-button-prev {
-      bottom: -30px;
-    }
-    .swiper-button-next {
-      right: 30%;
-    }
-
-    .swiper-button-prev {
-      left: 30%;
-    }
-  }
-}

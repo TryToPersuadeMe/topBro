@@ -101,6 +101,12 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .previewCard {
+    height: 360px;
+  }
+}
+
 @media (max-width: 1024px) {
   .previewCard {
     &__name {
@@ -114,12 +120,21 @@
     &__name {
       font-size: 20px;
     }
+
+    &__socialMediaLine {
+      font-size: 14px;
+    }
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 760px) {
   .previewCard {
-    max-width: 280px;
-    height: 280px;
+    height: 310px;
+  }
+}
+
+@media (max-width: 600px) {
+  .previewCard {
+    // max-width: 300px;
   }
 }

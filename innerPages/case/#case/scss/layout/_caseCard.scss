@@ -6,8 +6,6 @@
   backdrop-filter: blur(2px);
   color: #eff3f5;
 
-  & > *:not(.personalCard__slider) {
-  }
   &__slider {
     max-width: 410px;
   }
@@ -177,6 +175,8 @@
     margin-right: 100px;
   }
   &__link {
+    max-width: 100%;
+    width: 100%;
   }
 
   &__title {
@@ -186,17 +186,16 @@
   }
 
   &__arrow {
-    margin-bottom: 10px;
+    margin: 0 auto 10px auto;
     display: block;
-    &_left {
-      img,
-      source {
-        transform: rotate(180deg);
-      }
-    }
-  }
+    height: 20px;
+    @include backgroundImage("../resources/icons/longArrow-icon.svg", contain);
+    width: 100%;
+    max-width: 300px;
 
-  &__text {
+    &_next {
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -229,6 +228,12 @@
           height: 18px;
         }
       }
+    }
+  }
+
+  .pagesAnchorNavigation {
+    &__title {
+      font-size: 24px;
     }
   }
 }
@@ -266,11 +271,42 @@
       }
     }
   }
+
+  .pagesAnchorNavigation {
+    &__arrow {
+      background-image: url("../resources/icons/arrowSide-icon.svg");
+      &_left {
+        transform: none;
+      }
+    }
+  }
 }
 
 @media (max-width: 480px) {
   .personalCardFrameContainer {
     padding: 0;
+  }
+
+  .pagesAnchorNavigation {
+    padding: 0 20px;
+
+    & > *:first-child {
+      margin-right: 30px;
+    }
+
+    &__title {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    &__arrow {
+      margin-bottom: 5px;
+      height: 15px;
+      img,
+      source {
+        background-size: 50%;
+      }
+    }
   }
 
   .personalCard {

@@ -1250,6 +1250,9 @@ button.swiper-pagination-bullet {
   .previewCard__name {
     font-size: 20px;
   }
+  .previewCard__socialMediaLine {
+    font-size: 14px;
+  }
 }
 
 @media (max-width: 760px) {

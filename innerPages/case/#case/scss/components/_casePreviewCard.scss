@@ -1,0 +1,75 @@
+.casePreviewCard {
+  position: relative;
+  max-width: 420px;
+  width: 100%;
+  height: 220px;
+  display: block;
+  overflow: hidden;
+  &:hover {
+    img,
+    source {
+      transform: scale(1.2);
+    }
+
+    & > .casePreviewCard__cardName,
+    &::after {
+      opacity: 0;
+    }
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease;
+    display: block;
+    background: rgba(110, 16, 94, 0.25);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  img,
+  source {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.3s ease;
+  }
+
+  &__cardName {
+    font-weight: 800;
+    transition: 0.3s ease;
+    font-size: 36px;
+    color: #eff3f5;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .casePreviewCard {
+    &__cardName {
+      font-size: 28px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .casePreviewCard {
+    &__cardName {
+      font-size: 24px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .casePreviewCard {
+    &__cardName {
+      font-size: 20px;
+    }
+  }
+}

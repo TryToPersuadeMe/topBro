@@ -51,5 +51,17 @@
     &.swiper-scrollbar {
       bottom: 30px;
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      bottom: -30px;
+    }
+    .swiper-button-next {
+      right: 30%;
+    }
+
+    .swiper-button-prev {
+      left: 30%;
+    }
   }
 }
