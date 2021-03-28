@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="ключевые слова" />
+    <meta name="description" content="крутой сайт" />
+    <link href="./img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/globalMain.css" />
+    <link rel="stylesheet" href="./css/localMain.css" />
+    <title>Top Bro</title>
+  </head>
+
+  <body class="bodyOverlay">
+    <div class="js-pointer pointer">
+      <div class="pointer__circle"></div>
+    </div>
+    <!-- background -->
+    <div id="particles-js"></div>
+    <div class="wrapper">
+      @@include("./_header.html")
+      <main>
+        <div class="container responsiveHeader">
+          <a href="#" class="header__logo header__logo_responsive">
+            <img src="./resources/logotype.svg" alt="логотип топ Бро" />
+          </a>
+          <div class="burgerIcon"><span></span></div>
+        </div>
+
+        @@include("./_navigationPages.html") @@include("./_allCasesGallery.html") @@include("./_downLoad.html")
+      </main>
+
+      @@include("./_footer.html")
+    </div>
+
+    @@include("./_getFeedBackFrom.html")
+
+    <!-- swiper -->
+    <script src="./js/js_plugins/swiper.bundle.min.js"></script>
+
+    <!-- background -->
+    <script src="./js/js_plugins/particles.js"></script>
+    <script src="./js/js_plugins/app.js"></script>
+
+    <!-- wow js - library for scroll -->
+    <script src="./js/js_plugins/wow.min.js"></script>
+
+    <!-- <script src="./js/js_plugins/jQuery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <!-- custom JS -->
+    <script src="./js/globalMain.js"></script>
+    <script src="./js/localMain.js"></script>
+  </body>
+</html>

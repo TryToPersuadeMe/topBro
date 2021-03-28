@@ -1,0 +1,242 @@
+.getFeedBack {
+  background: #d26600;
+  max-width: 752px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25), inset 0px 0px 8px 8px rgba(110, 16, 94, 0.25);
+  font-family: Montserrat;
+  border-radius: 50px;
+  width: 100%;
+  &.popUp {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: z(popUp-Feedback);
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.6s ease;
+    .getFeedBack__closeIcon {
+      display: flex;
+    }
+    &.active {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  &__closeIcon {
+    display: none;
+    width: 45px;
+    height: 45px;
+    right: 30px;
+    top: 30px;
+    z-index: z(popUp-Feedback);
+    position: absolute;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.6s ease;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      transition: 0.3s ease;
+      width: 60%;
+      background-color: white;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+    }
+
+    &:hover {
+      background-color: white;
+      transform: rotate(360deg);
+      &::after,
+      &::before {
+        background-color: #d26600;
+      }
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding: 55px 90px 65px;
+  }
+
+  &__title {
+    font-weight: 800;
+    font-size: 50px;
+    text-align: center;
+    color: #eff3f5;
+    margin-bottom: 35px;
+    text-align: center;
+    width: 100%;
+  }
+
+  &__input {
+    border: 1px solid #eff3f5;
+    border-radius: 30px;
+    background-color: transparent;
+    min-height: 50px;
+    width: 100%;
+    margin-bottom: 22px;
+    padding: 0px 40px;
+    color: #eff3f5;
+    font-size: 16px;
+    &:focus {
+      border: 2px solid #eff3f5;
+    }
+
+    &::placeholder {
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      color: #eff3f5;
+      opacity: 0.5;
+    }
+  }
+
+  &__textArea {
+    resize: none;
+    height: 150px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+  }
+
+  &__button {
+    min-height: 60px;
+    background: #eff3f5;
+    border-radius: 50px;
+    padding: 0 85px;
+    font-weight: 500;
+    color: #d26600;
+    font-size: 16px;
+    margin: 30px auto 0 auto;
+    border: 1px solid #d26600;
+    transition: 0.3s ease;
+    &:hover {
+      color: #eff3f5;
+      border: 1px solid #eff3f5;
+      background-color: transparent;
+      transform: scale(1.05);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .getFeedBack {
+    border-radius: 36px;
+    max-width: 600px;
+    &__container {
+      padding: 55px 90px;
+    }
+    &__title {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    &__input:not(.getFeedBack__textArea) {
+      min-height: 40px;
+    }
+    &__input {
+      padding-left: 20px;
+      padding-right: 20px;
+      font-size: 14px;
+      ::placeholder {
+        font-size: 14px;
+      }
+    }
+
+    &__button {
+      margin-top: 0px;
+      min-height: 50px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .getFeedBack {
+    max-width: 480px;
+    border-radius: 24px;
+
+    &.popUp {
+      .getFeedBack__container {
+        height: 100%;
+      }
+    }
+    &__container {
+      padding: 30px 55px;
+    }
+    &__title {
+      font-size: 28px;
+    }
+
+    &__button {
+      padding: 0 30px;
+      font-size: 14px;
+    }
+
+    &__closeIcon {
+      top: 15px;
+      right: 15px;
+      width: 35px;
+      height: 35px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .getFeedBack {
+    max-width: 360px;
+    &__container {
+      padding: 40px 40px 25px;
+    }
+    &__title {
+      font-size: 24px;
+    }
+
+    &__button {
+      padding: 0 30px;
+      font-size: 14px;
+      margin-top: 10px;
+      min-height: 40px;
+    }
+
+    &__closeIcon {
+      top: 10px;
+      right: 10px;
+      width: 25px;
+      height: 25px;
+    }
+
+    &__input {
+      margin-bottom: 15px;
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media (max-height: 600px) {
+  .getFeedBack {
+    &.popUp {
+      height: 100vh;
+      overflow-y: auto;
+      border-radius: 0;
+      $this: ".getFeedBack";
+      #{$this}__container {
+        height: auto;
+      }
+    }
+  }
+}

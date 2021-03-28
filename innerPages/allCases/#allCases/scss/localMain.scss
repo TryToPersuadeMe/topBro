@@ -1,0 +1,16 @@
+/* abstracts */
+@import "./abstracts/mixins.scss";
+@import "./abstracts/variables.scss";
+@import "./abstracts/functions.scss";
+
+/* vendors - code from side sources and Libraries */
+@import "./vendors/animate.min.scss";
+
+/* components */
+@import "./components/_casePreviewCard.scss";
+
+/* layout */
+@import "./layout/bloggersGallery";
+@import "./layout/downLoad.scss";
+@import "./layout/_particles-js.scss";
+@import "./layout/_navigationPages.scss";

@@ -1,0 +1,48 @@
+.allCasesGallery {
+  &__container {
+    min-height: 100vh;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__gridWrapper {
+    column-gap: 20px;
+    row-gap: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    justify-items: center;
+  }
+
+  &__casePreviewCard {
+  }
+}
+@media (max-width: 1024px) {
+  .allCasesGallery {
+    &__casePreviewCard {
+      height: 200px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .allCasesGallery {
+    &__gridWrapper {
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .allCasesGallery {
+    &__gridWrapper {
+    }
+    &__casePreviewCard {
+      height: 180px;
+    }
+  }
+}

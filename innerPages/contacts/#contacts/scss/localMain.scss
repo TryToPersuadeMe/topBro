@@ -1,0 +1,26 @@
+/* abstracts */
+@import "./abstracts/mixins.scss";
+@import "./abstracts/variables.scss";
+@import "./abstracts/functions.scss";
+
+/* vendors - code from side sources and Libraries */
+
+/* components */
+
+/* layout */
+
+@import "./layout/_particles-js.scss";
+@import "./layout/_navigationPages.scss";
+@import "./layout/_contactsSection.scss";
+
+.halfBackgroundColor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -2;
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  border-top-right-radius: 76px;
+  border-bottom-right-radius: 76px;
+}
