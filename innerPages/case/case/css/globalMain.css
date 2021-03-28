@@ -480,6 +480,15 @@ input[type="search"]::-webkit-search-results-decoration {
   font-weight: 600;
   line-height: 1.2;
   margin-right: 25px;
+  -webkit-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.footer__text.hoverable:hover {
+  -webkit-transform: scale(1.15);
+      -ms-transform: scale(1.15);
+          transform: scale(1.15);
 }
 
 .footer .socialMedia {

@@ -36,6 +36,10 @@
     font-weight: 600;
     line-height: 1.2;
     margin-right: 25px;
+    transition: 0.3s ease;
+    &.hoverable:hover {
+      transform: scale(1.15);
+    }
   }
 
   .socialMedia {
