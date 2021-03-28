@@ -4280,19 +4280,19 @@
     padding-right: 20px;
     font-size: 14px;
   }
-  .getFeedBack__input ::-webkit-input-placeholder {
+  .getFeedBack__input::-webkit-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input ::-moz-placeholder {
+  .getFeedBack__input::-moz-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input :-ms-input-placeholder {
+  .getFeedBack__input:-ms-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input ::-ms-input-placeholder {
+  .getFeedBack__input::-ms-input-placeholder {
     font-size: 14px;
   }
-  .getFeedBack__input ::placeholder {
+  .getFeedBack__input::placeholder {
     font-size: 14px;
   }
   .getFeedBack__button {
@@ -4351,6 +4351,21 @@
   }
   .getFeedBack__input {
     margin-bottom: 15px;
+  }
+  .getFeedBack__input::-webkit-input-placeholder {
+    font-size: 12px;
+  }
+  .getFeedBack__input::-moz-placeholder {
+    font-size: 12px;
+  }
+  .getFeedBack__input:-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .getFeedBack__input::-ms-input-placeholder {
+    font-size: 12px;
+  }
+  .getFeedBack__input::placeholder {
+    font-size: 12px;
   }
 }
 

@@ -157,7 +157,7 @@ const callPopUp = new CallPopUp({
   },
 
   popUp: {
-    selector: "getFeedBack",
+    selector: "popUp",
     closeIcon: "getFeedBack__closeIcon",
   },
 });

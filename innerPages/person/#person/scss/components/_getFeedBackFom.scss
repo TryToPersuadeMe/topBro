@@ -151,7 +151,7 @@
       padding-left: 20px;
       padding-right: 20px;
       font-size: 14px;
-      ::placeholder {
+      &::placeholder {
         font-size: 14px;
       }
     }
@@ -220,6 +220,9 @@
 
     &__input {
       margin-bottom: 15px;
+      &::placeholder {
+        font-size: 12px;
+      }
     }
   }
 }

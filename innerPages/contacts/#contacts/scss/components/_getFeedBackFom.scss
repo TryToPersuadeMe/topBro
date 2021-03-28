@@ -151,7 +151,7 @@
       padding-left: 20px;
       padding-right: 20px;
       font-size: 14px;
-      ::placeholder {
+      &::placeholder {
         font-size: 14px;
       }
     }
