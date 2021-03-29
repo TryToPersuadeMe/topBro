@@ -1,7 +1,12 @@
+
 import * as THREE from "https://threejs.org/build/three.module.js";
 import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
 
-let scene = new THREE.Scene();
+
+
+
+
+let mounatinScen = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 1, 1000);
 camera.position.set(0, 5, 10);
 let renderer = new THREE.WebGLRenderer({ antialias: true });
@@ -13,7 +18,7 @@ let controls = new OrbitControls(camera, renderer.domElement);
 
 let light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.setScalar(1);
-scene.add(light, new THREE.AmbientLight(0xffffff, 0.5));
+mounatinScen.add(light, new THREE.AmbientLight(0xffffff, 0.5));
 
 // rt ////////////////////////////////////////////////////////////////
 let renderTarget = new THREE.WebGLRenderTarget(512, 512);

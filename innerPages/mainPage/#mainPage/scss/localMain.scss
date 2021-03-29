@@ -1,0 +1,41 @@
+/* abstracts */
+@import "./abstracts/mixins.scss";
+@import "./abstracts/variables.scss";
+@import "./abstracts/functions.scss";
+
+/* vendors - code from side sources and Libraries */
+@import "./vendors/swiper.scss";
+
+/* components */
+@import "./components/previewCard.scss";
+@import "./components/getFeedBackFom.scss";
+
+/* layout */
+@import "./layout/_particles-js.scss";
+@import "./layout/bloggersGallery";
+@import "./layout/casesExample";
+
+.sectionSupTitle {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-align: center;
+  color: #eff3f5;
+  &_marginDefault {
+    margin-bottom: 50px;
+  }
+}
+
+.linkButton {
+  background: #d26600;
+  box-shadow: inset 0px -6.03831px 5.28352px rgba(255, 255, 255, 0.25), inset 0px 8.30268px 5.28352px rgba(255, 249, 249, 0.25);
+  border-radius: 40px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 46px;
+  padding: 0 32px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #eff3f5;
+}
