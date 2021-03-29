@@ -1203,6 +1203,11 @@ button.swiper-pagination-bullet {
   grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
 }
 
+.casesExample__container {
+  position: relative;
+  padding-left: 20px;
+}
+
 .casesExample__slider {
   max-width: 1380px;
   width: 100%;
@@ -1235,8 +1240,16 @@ button.swiper-pagination-bullet {
   opacity: 1;
 }
 
+.casesExample__button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
 .caseBox {
-  max-width: 860px;
   line-height: 1.2;
   color: #eff3f5;
   width: 100%;
