@@ -36,6 +36,43 @@
   padding: 0 32px;
   font-weight: 500;
   font-size: 16px;
-  line-height: 20px;
   color: #eff3f5;
+  transition: 0.4s ease;
+  &:hover {
+    box-shadow: inset 0px -6.03831px 5.28352px rgba(255, 255, 255, 0), inset 0px 8.30268px 5.28352px rgba(255, 249, 249, 0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionSupTitle {
+    font-size: 30px;
+    &_marginDefault {
+      margin-bottom: 50px;
+    }
+  }
+
+  .linkButton {
+    border-radius: 30px;
+    min-height: 36px;
+    padding: 0 26px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sectionSupTitle {
+    font-size: 26px;
+    &_marginDefault {
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionSupTitle {
+    font-size: 24px;
+    &_marginDefault {
+      margin-bottom: 40px;
+    }
+  }
 }

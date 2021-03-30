@@ -1,35 +1,35 @@
 var descriptionSlider = new Swiper(".casesExample__slider", {
-  slidesPerView: 1.5,
   spaceBetween: 20,
   watchOverflow: true,
   speed: 800,
-
+  autoHeight: true,
   scrollbar: {
     el: ".customScrollbar",
     hide: false,
+  },
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
 
   observer: true,
   observeParents: true,
   observeSlideChildren: true,
 
-  // on: {
-  //   afterInit: function () {
-  //     // && this.$wrapperEl[0].children.length != 1
-  //     this.$wrapperEl[0].insertAdjacentHTML(
-  //       "beforeend",
-  //       `<a class="swiper-slide dummySlide caseBox" style="opacity:0;visibility:hidden"></a>`
-  //     );
-  //   },
+  breakpoints: {
+    // when window width is >= 640px
 
-  //   resize: function () {
-  //     const $lastSlide = this.slides[this.slides.length - 1];
-  //     console.log($lastSlide);
-  //     if (window.innerWidth < 480 && $lastSlide.classList.contains("dummySlide")) {
-  //       $lastSlide.remove();
-  //     } else if (window.innerWidth > 480 && !$lastSlide.classList.contains("dummySlide")) {
-  //       this.$wrapperEl[0].insertAdjacentHTML("beforeend", `<a class="swiper-slide dummySlide caseBox" ></a>`);
-  //     }
-  //   },
-  // },
+    320: {
+      slidesPerView: 1,
+    },
+
+    769: {
+      slidesPerView: 1.3,
+    },
+
+    1025: {
+      slidesPerView: 1.5,
+    },
+  },
 });
