@@ -814,6 +814,12 @@ button.swiper-pagination-bullet {
      object-fit: contain;
 }
 
+@media (max-width: 1300px) {
+  .previewCard {
+    max-width: 310px;
+  }
+}
+
 @media (max-width: 1200px) {
   .previewCard {
     height: 360px;
@@ -1195,12 +1201,17 @@ button.swiper-pagination-bullet {
   row-gap: 50px;
   padding-bottom: 30px;
   padding-top: 30px;
-  display: grid;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+}
+
+@media (min-width: 1300px) {
+  .bloggersGallery__gridWrapper {
+    display: grid;
+  }
 }
 
 .casesExample__container {

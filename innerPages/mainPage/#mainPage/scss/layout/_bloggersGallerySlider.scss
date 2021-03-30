@@ -12,10 +12,13 @@
     row-gap: 50px;
     padding-bottom: 30px;
     padding-top: 30px;
-    display: grid;
     justify-content: center;
     justify-items: center;
 
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+
+    @media (min-width: 1300px) {
+      display: grid;
+    }
   }
 }
