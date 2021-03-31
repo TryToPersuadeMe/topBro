@@ -1580,6 +1580,280 @@ button.swiper-pagination-bullet {
   }
 }
 
+.ourClientsSection__comments-slider {
+  max-width: 650px;
+  width: 100%;
+  padding: 10px 10px 50px 10px;
+}
+
+.ourClientsSection__comments-slider .swiper-slide {
+  -webkit-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+}
+
+.ourClientsSection__comments-slider .swiper-slide:not(.swiper-slide-active) {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ourClientsSection__clienInfo-slider {
+  padding: 10px 0 20px;
+  width: 100%;
+}
+
+.comment {
+  background: #eff3f5;
+  border-radius: 5px;
+  color: #6e105e;
+  line-height: 1.4;
+  padding: 15px 20px;
+  width: 0;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 12px #f16b41;
+          box-shadow: 0px 0px 12px #f16b41;
+  position: relative;
+}
+
+.comment::after {
+  content: "";
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../resources/icons/rectangle-mask.svg");
+  width: 150px;
+  height: 55px;
+  position: absolute;
+  left: 55%;
+  bottom: 0%;
+  -webkit-transform: translateY(85%);
+      -ms-transform: translateY(85%);
+          transform: translateY(85%);
+}
+
+.comment__wrapper {
+  border-left: 2px solid rgba(210, 102, 0, 0.2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: 90px;
+  min-height: 70px;
+  padding-left: 20px;
+}
+
+.comment__wrapper:before, .comment__wrapper:after {
+  content: "";
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url("../resources/icons/coma-icon.svg");
+  width: 30px;
+  height: 50px;
+  top: 20px;
+  position: absolute;
+  left: 25px;
+  opacity: 0.3;
+}
+
+.comment__wrapper:after {
+  left: 44px;
+  -webkit-transform: translateX(50%);
+      -ms-transform: translateX(50%);
+          transform: translateX(50%);
+}
+
+.comment__text {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  margin-bottom: 15px;
+}
+
+.comment__supText {
+  font-style: italic;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: end;
+}
+
+.clientInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+  max-width: 300px;
+}
+
+.clientInfo:not(.swiper-slide-active) {
+  max-width: 70px;
+  -webkit-transform: scale(0.8);
+      -ms-transform: scale(0.8);
+          transform: scale(0.8);
+}
+
+.clientInfo:not(.swiper-slide-active) > .clientInfo__name {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.clientInfo > :first-child {
+  margin-right: 20px;
+}
+
+.clientInfo__image {
+  min-width: 90px;
+  max-width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 12px #f16b41;
+          box-shadow: 0px 0px 12px #f16b41;
+}
+
+.clientInfo__image img,
+.clientInfo__image source {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.clientInfo__name {
+  font-weight: 800;
+  font-size: 24px;
+  -webkit-transition: 0.6s ease;
+  -o-transition: 0.6s ease;
+  transition: 0.6s ease;
+  line-height: 1.2;
+  color: #eff3f5;
+}
+
+@media (max-width: 1024px) {
+  .clientInfo__name {
+    font-size: 20px;
+  }
+  .comment {
+    background: #eff3f5;
+    border-radius: 5px;
+    color: #6e105e;
+    line-height: 1.4;
+    padding: 15px 20px;
+    width: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 12px #f16b41;
+            box-shadow: 0px 0px 12px #f16b41;
+    position: relative;
+  }
+  .comment::after {
+    content: "";
+    display: block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url("../resources/icons/rectangle-mask.svg");
+    width: 150px;
+    height: 55px;
+    position: absolute;
+    left: 55%;
+    bottom: 0%;
+    -webkit-transform: translateY(85%);
+        -ms-transform: translateY(85%);
+            transform: translateY(85%);
+  }
+  .comment__wrapper {
+    margin-left: 70px;
+  }
+  .comment__wrapper:before, .comment__wrapper:after {
+    width: 20px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ourClientsSection__comments-slider {
+    padding: 10px 10px 40px 10px;
+  }
+  .comment::after {
+    width: 100px;
+    -webkit-transform: translateY(75%);
+        -ms-transform: translateY(75%);
+            transform: translateY(75%);
+  }
+  .comment__wrapper {
+    width: auto;
+    margin-left: 60px;
+  }
+  .comment__wrapper:before, .comment__wrapper:after {
+    width: 20px;
+    height: 30px;
+  }
+  .comment__wrapper:after {
+    left: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ourClientsSection__comments-slider {
+    padding: 10px 10px 40px 10px;
+  }
+  .comment__wrapper {
+    width: auto;
+    margin-left: 40px;
+  }
+  .comment__wrapper:before, .comment__wrapper:after {
+    left: 10px;
+  }
+  .comment__wrapper:after {
+    left: 20px;
+  }
+  .comment__text {
+    font-size: 14px;
+  }
+  .clientInfo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    max-width: 200px;
+  }
+  .clientInfo:not(.swiper-slide-active) {
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+    max-width: 100%;
+  }
+  .clientInfo > :first-child {
+    margin: 0 0 20px 0;
+  }
+  .clientInfo__image {
+    min-width: 70px;
+    max-width: 70px;
+    height: 70px;
+  }
+  .clientInfo__name {
+    font-size: 16px;
+  }
+}
+
 .sectionSupTitle {
   font-size: 36px;
   font-weight: 800;
