@@ -211,9 +211,12 @@
     &__wrapper {
       width: auto;
       margin-left: 40px;
+      border-width: 0px;
+      margin: 0;
+      padding: 0;
       &:before,
       &:after {
-        left: 10px;
+        display: none;
       }
 
       &:after {

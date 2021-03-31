@@ -1818,9 +1818,12 @@ button.swiper-pagination-bullet {
   .comment__wrapper {
     width: auto;
     margin-left: 40px;
+    border-width: 0px;
+    margin: 0;
+    padding: 0;
   }
   .comment__wrapper:before, .comment__wrapper:after {
-    left: 10px;
+    display: none;
   }
   .comment__wrapper:after {
     left: 20px;
