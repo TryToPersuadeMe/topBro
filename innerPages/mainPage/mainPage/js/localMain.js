@@ -94,6 +94,7 @@ var clientsSlider = new Swiper(".ourClientsSection__clienInfo-slider", {
   autoHeight: true,
   centeredSlides: true,
   spaceBetween: 30,
+
   //   freeMode: true,
   watchSlidesVisibility: true,
   //   watchSlidesProgress: true,
