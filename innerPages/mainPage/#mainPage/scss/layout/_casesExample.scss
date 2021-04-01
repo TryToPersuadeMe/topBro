@@ -1,7 +1,10 @@
 .casesExample {
+  height: auto !important;
   &__container {
     position: relative;
     padding-left: 20px;
+    margin-bottom: 100px;
+    margin-top: 50px;
   }
 
   &__slider {

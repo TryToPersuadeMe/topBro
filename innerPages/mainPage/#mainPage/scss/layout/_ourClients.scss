@@ -1,5 +1,12 @@
 .ourClientsSection {
   &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   &__comments-slider {
@@ -20,6 +27,11 @@
   &__clienInfo-slider {
     padding: 10px 0 20px;
     width: 100%;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none;
   }
 }
 
@@ -93,13 +105,17 @@
   align-items: center;
   transition: 0.6s ease;
   max-width: 300px;
+
+  // &.swiper-slide-active - .swiper-slide{
+  //   border: 1px solid rgb(248, 246, 246);
+  // }
+
   &:not(.swiper-slide-active) {
-    max-width: 70px;
-    transform: scale(0.8);
+    max-width: 80px;
+    // transform: scale(0.8);
     & > .clientInfo__name {
-      transform: scale(0);
+      // transform: scale(0);
       opacity: 0;
-      visibility: hidden;
     }
   }
 
@@ -205,6 +221,38 @@
     &__comments-slider {
       padding: 10px 10px 40px 10px;
     }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      width: 35px;
+      height: 35px;
+      top: 50%;
+      transform: translateY(25%);
+      &::after {
+        display: none;
+      }
+
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        display: block;
+        @include backgroundImage("../resources/icons/arrowSide-icon.svg", contain);
+      }
+    }
+
+    .swiper-button-next {
+      transform: translateY(25%) rotate(180deg);
+      right: 35px;
+    }
+
+    .swiper-button-prev {
+      right: 140px;
+      left: auto;
+    }
   }
 
   .comment {
@@ -232,6 +280,7 @@
   .clientInfo {
     flex-direction: column;
     max-width: 200px;
+    transition: 0.6s ease-in-out;
     &:not(.swiper-slide-active) {
       transform: scale(0);
       max-width: 100%;
@@ -240,13 +289,36 @@
       margin: 0 0 20px 0;
     }
     &__image {
-      min-width: 70px;
-      max-width: 70px;
-      height: 70px;
+      min-width: 100px;
+      max-width: 100px;
+      height: 100px;
     }
 
     &__name {
       font-size: 16px;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .clientInfo {
+    max-width: 160px;
+  }
+
+  .ourClientsSection {
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 25px;
+      height: 25px;
+    }
+
+    .swiper-button-next {
+      right: 10px;
+    }
+
+    .swiper-button-prev {
+      right: 80px;
+      left: auto;
     }
   }
 }

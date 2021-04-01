@@ -1,12 +1,8 @@
 .firstScreen {
   &__container {
-    min-height: 75vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding-top: 30px;
     padding-bottom: 30px;
+    text-align: center;
     max-width: 970px;
   }
 

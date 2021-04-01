@@ -3,19 +3,16 @@ var descriptionSlider = new Swiper(".casesExample__slider", {
   watchOverflow: true,
   speed: 800,
   autoHeight: true,
+
   scrollbar: {
-    el: ".customScrollbar",
+    el: ".allBloggers__scrollbar",
     hide: false,
   },
 
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: ".allBloggers-button-next",
+    prevEl: ".allBloggers-button-prev",
   },
-
-  observer: true,
-  observeParents: true,
-  observeSlideChildren: true,
 
   breakpoints: {
     // when window width is >= 640px

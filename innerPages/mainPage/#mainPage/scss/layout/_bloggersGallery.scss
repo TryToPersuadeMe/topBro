@@ -1,6 +1,9 @@
 .bloggersGallery {
   &__container {
-    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    padding-bottom: 100px;
   }
 
   &__title {
@@ -10,15 +13,16 @@
   &__gridWrapper {
     column-gap: 20px;
     row-gap: 50px;
-    padding-bottom: 30px;
+    padding-bottom: 60px;
     padding-top: 30px;
+    display: grid;
     justify-content: center;
     justify-items: center;
 
     grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
+  }
 
-    @media (min-width: 1300px) {
-      display: grid;
-    }
+  &__button {
+    margin: 0 auto;
   }
 }

@@ -12,11 +12,14 @@
 
 /* layout */
 @import "./layout/_particles-js.scss";
-@import "./layout/_bloggersGallerySlider";
+@import "./layout/_bloggersGallery";
 @import "./layout/casesExample";
 @import "./layout/ourClients";
 @import "./layout/firstScreen";
 @import "./layout/services";
+@import "./layout/statsSection";
+@import "./layout/partners";
+
 .sectionSupTitle {
   font-size: 36px;
   font-weight: 800;
@@ -45,6 +48,24 @@
   }
 }
 
+.fullHeightScreenWrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  max-width: 100%;
+  width: 100%;
+
+  @media (min-width: 901px) {
+    .responsiveHeader {
+      display: none;
+    }
+  }
+
+  .firstScreen {
+    align-self: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .sectionSupTitle {
     font-size: 30px;
@@ -67,6 +88,10 @@
     &_marginDefault {
       margin-bottom: 40px;
     }
+  }
+
+  .sectionTitle {
+    font-size: 36px;
   }
 }
 
