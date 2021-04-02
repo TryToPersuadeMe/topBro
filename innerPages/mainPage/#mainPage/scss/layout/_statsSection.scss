@@ -21,6 +21,20 @@
     position: relative;
     width: 100%;
     margin: 0px 5px 90px 5px;
+    * {
+      transition: 0.3s ease;
+    }
+    &:hover {
+      .stats__numbers {
+        color: rgba(239, 243, 245, 1);
+        text-shadow: 4px 7px 7px #f36f56;
+      }
+
+      .stats__text {
+        color: rgba(255, 255, 255, 0.2);
+        -webkit-text-stroke: 2px #eff3f5;
+      }
+    }
 
     &_big {
       max-width: 550px;
@@ -38,7 +52,7 @@
     font-size: 90px;
     font-weight: 700;
     color: rgba(255, 255, 255, 0.2);
-    -webkit-text-stroke: 2px #eff3f5;
+    -webkit-text-stroke: 2px rgb(239, 243, 245);
     position: absolute;
     transform: translateY(-45%);
     top: 0;
@@ -49,7 +63,8 @@
     font-weight: 900;
     font-size: 32px;
     line-height: 1.5;
-    color: #eff3f5;
+    -webkit-text-stroke: 2px transparent;
+    color: rgba(239, 243, 245, 1);
   }
 }
 
