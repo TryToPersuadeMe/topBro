@@ -39,33 +39,25 @@ var commentsSlider = new Swiper(".ourClientsSection__comments-slider ", {
   autoHeight: true,
   on: {
     init: function () {
-      // this.$wrapperEl[0].insertAdjacentHTML("afterbegin", `<div class="swiper-slide dummySlide comment"></div>`);
-      // this.$wrapperEl[0].insertAdjacentHTML("afterbegin", `<div class="swiper-slide dummySlide clientInfo"></div>`);
-
+      if (window.innerWidth > 480) {
+        this.$wrapperEl[0].insertAdjacentHTML("afterbegin", `<div class="swiper-slide dummySlide comment"></div>`);
+      }
       this.updateProgress();
       this.updateSize();
       this.updateSlides();
     },
-    // beforeTransitionStart: function () {
-    //   if (this.activeIndex <= 1) {
-    //     this.allowSlidePrev = false;
-    //   } else {
-    //     this.allowSlidePrev = true;
-    //   }
-    // },
 
-    // activeIndexChange: function () {
-    //   if (this.activeIndex == 0) {
-    //     this.slideTo(1);
-    //   }
-    // },
+    activeIndexChange: function () {
+      if (this.activeIndex == 0 && window.innerWidth > 480) {
+        this.slideTo(1);
+      }
+    },
   },
 });
 
 var clientsSlider = new Swiper(".ourClientsSection__clienInfo-slider", {
   spaceBetween: 50,
   speed: 600,
-  // slidesPerView: "auto",
   centeredSlides: true,
   navigation: {
     nextEl: ".comment-button-next",
@@ -74,12 +66,11 @@ var clientsSlider = new Swiper(".ourClientsSection__clienInfo-slider", {
 
   breakpoints: {
     320: {
-      slidesPerView: 1.1,
+      slidesPerView: 2,
+      centeredSlides: false,
       spaceBetween: 0,
     },
-    376: {
-      spaceBetween: 30,
-    },
+
     481: {
       slidesPerView: "auto",
     },
@@ -87,35 +78,24 @@ var clientsSlider = new Swiper(".ourClientsSection__clienInfo-slider", {
 
   on: {
     init: function () {
-      // this.$wrapperEl[0].insertAdjacentHTML("beforeend", `<div class="swiper-slide dummySlide clientInfo"></div>`);
-
-      this.updateProgress();
+      this.$wrapperEl[0].insertAdjacentHTML("beforeend", `<div class="swiper-slide dummySlide clientInfo"></div>`);
       this.updateSize();
       this.updateSlides();
     },
-    // beforeTransitionStart: function () {
-    //   if (this.activeIndex <= 1) {
-    //     this.allowSlidePrev = false;
-    //   } else {
-    //     this.allowSlidePrev = true;
-    //   }
-    // },
 
-    // activeIndexChange: function () {
-    //   if (this.activeIndex == 0) {
-    //     this.slideTo(1);
-    //   }
-    // },
+    activeIndexChange: function () {
+      if (this.activeIndex == 0 && window.innerWidth > 480) {
+        this.slideTo(1);
+        console.log("Asd");
+      }
+    },
   },
 });
 
 commentsSlider.controller.control = clientsSlider;
 clientsSlider.controller.control = commentsSlider;
-clientsSlider.slideTo(Math.round(1));
+clientsSlider.slideTo(Math.round(clientsSlider.slides.length / 2));
 
 const q = document.querySelectorAll(".comment");
 const qw = document.querySelectorAll(".clientInfo");
-
-console.log(q);
-console.log(qw);
 ;

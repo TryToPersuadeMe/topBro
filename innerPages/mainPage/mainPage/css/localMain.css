@@ -1624,21 +1624,6 @@ button.swiper-pagination-bullet {
   transition: 0.6s ease;
 }
 
-.ourClientsSection__comments-slider .swiper-slide:first-of-type::after {
-  -webkit-transform: scale(-1, 1) translateY(85%);
-      -ms-transform: scale(-1, 1) translateY(85%);
-          transform: scale(-1, 1) translateY(85%);
-  left: 25%;
-}
-
-.ourClientsSection__comments-slider .swiper-slide:not(.swiper-slide-active) {
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  opacity: 0;
-  visibility: hidden;
-}
-
 .ourClientsSection__clienInfo-slider {
   padding: 10px 0 20px;
   width: 100%;
@@ -1661,6 +1646,14 @@ button.swiper-pagination-bullet {
   -webkit-box-shadow: 0px 0px 12px #f16b41;
           box-shadow: 0px 0px 12px #f16b41;
   position: relative;
+}
+
+.comment.swiper-slide:not(.swiper-slide-active) {
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  opacity: 0;
+  visibility: hidden;
 }
 
 .comment::after {
@@ -1745,14 +1738,6 @@ button.swiper-pagination-bullet {
   max-width: 300px;
 }
 
-.clientInfo:not(.swiper-slide-prev) {
-  max-width: 80px;
-}
-
-.clientInfo:not(.swiper-slide-prev) > .clientInfo__name {
-  opacity: 0;
-}
-
 .clientInfo > :first-child {
   margin-right: 20px;
 }
@@ -1786,6 +1771,12 @@ button.swiper-pagination-bullet {
 }
 
 @media (min-width: 481px) {
+  .clientInfo:not(.swiper-slide-prev) {
+    max-width: 80px;
+  }
+  .clientInfo:not(.swiper-slide-prev) > .clientInfo__name {
+    opacity: 0;
+  }
   .clientInfo__image {
     -webkit-transition: 0.6s ease;
     -o-transition: 0.6s ease;
@@ -1921,12 +1912,39 @@ button.swiper-pagination-bullet {
   .comment__text {
     font-size: 14px;
   }
+  .clientInfo {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    text-align: center;
+    -webkit-transition: 0.6s ease-in-out;
+    -o-transition: 0.6s ease-in-out;
+    transition: 0.6s ease-in-out;
+    width: auto;
+    max-width: 200px;
+  }
+  .clientInfo.swiper-slide:not(.swiper-slide-active) {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+            transform: scale(0);
+  }
+  .clientInfo > :first-child {
+    margin: 0 0 20px 0;
+  }
+  .clientInfo__image {
+    min-width: 100px;
+    max-width: 100px;
+    height: 100px;
+  }
+  .clientInfo__name {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 380px) {
-  .clientInfo {
-    max-width: 160px;
-  }
   .ourClientsSection .swiper-button-next,
   .ourClientsSection .swiper-button-prev {
     width: 25px;
