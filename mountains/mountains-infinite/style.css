@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'NEON';
+  src: URL('https://cywarr.github.io/small-shop/NEON.TTF') format('truetype');
+  /*https://www.1001fonts.com/neon-font.html*/
+}
+body{
+  margin: 0;
+  overflow: hidden;
+}
+.text {
+  position: absolute;
+  top: 5vh;
+  width: 100%;
+  text-align: center;
+}
+.retro {
+  font-family: 'NEON';
+  font-size: 12vh;
+  display: block;
+  color: #0ff;
+  text-shadow: 0 0 0.125vh #f6a, 0 0 0.125vh #f6a, 0 0 0.25vh #f6a, 0 0 0.5vh #f6a, 0 0 0.75vh #f6a;
+}
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+  supported by Chrome and Opera */
+}
