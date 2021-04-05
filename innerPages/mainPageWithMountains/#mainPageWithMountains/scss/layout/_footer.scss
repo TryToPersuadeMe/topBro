@@ -1,0 +1,121 @@
+.footer {
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 40px;
+  }
+
+  &__logo {
+    max-width: 200px;
+    width: 100%;
+    margin-right: 30px;
+    img,
+    source {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__getContact {
+  }
+
+  &__text {
+    font-size: 20px;
+    color: #eff3f5;
+    margin-bottom: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-right: 25px;
+    transition: 0.3s ease;
+    &.hoverable:hover {
+      transform: scale(1.15);
+    }
+  }
+
+  .socialMedia {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28px, auto));
+    gap: 30px;
+    justify-content: center;
+    width: 100%;
+    &__item {
+      height: 32px;
+      width: 32px;
+      transition: 0.3s ease;
+      &:hover {
+        transform: scale(1.25);
+      }
+      img,
+      source {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    &__text {
+      font-size: 16px;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .footer {
+    &__row {
+      margin-right: -20px;
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .socialMedia {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__container {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    &__row {
+      flex-direction: column;
+      width: 100%;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .socialMedia {
+      margin: 0;
+      position: static;
+      width: 100%;
+      text-align: center;
+    }
+
+    &__text {
+      margin: 0 0 20px 0;
+    }
+
+    &__logo {
+      margin: 0 0 20px 0;
+    }
+  }
+}

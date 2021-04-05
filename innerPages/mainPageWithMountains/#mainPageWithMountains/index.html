@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content="ключевые слова" />
+    <meta name="description" content="крутой сайт" />
+    <link href="./img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="./css/globalMain.css" />
+    <link rel="stylesheet" href="./css/localMain.css" />
+    <title>Top Bro</title>
+  </head>
+
+  <body class="bodyOverlay">
+    <div class="js-pointer pointer">
+      <div class="pointer__circle"></div>
+    </div>
+    <!-- background -->
+    <div id="particles-js"></div>
+    <div class="wrapper">
+      <div class="fullHeightScreenWrapper">
+        @@include("./_header.html")
+
+        <div class="container responsiveHeader">
+          <a href="#" class="header__logo header__logo_responsive">
+            <img src="./resources/logotype.svg" alt="логотип топ Бро" />
+          </a>
+          <div class="burgerIcon"><span></span></div>
+        </div>
+
+        <section class="firstScreen">
+          <div class="container firstScreen__container">
+            <h1 class="sectionTitle sectionTitle_defaultMarginBottom">Реклама у топовых блогеров с высокой конверсией</h1>
+
+            <a href="#" class="linkButton firstScreen__linkButton">Подробнее</a>
+          </div>
+        </section>
+      </div>
+
+      @@include("./_services.html") @@include("./_bloggersGallery.html") @@include("./_casesExample.html")
+      @@include("./_statsSection.html") @@include("_partners.html") @@include("./_ourClients.html") @@include("./_footer.html")
+    </div>
+
+    @@include("./_getFeedBackFrom.html")
+
+    <!-- swiper -->
+    <script src="./js/js_plugins/swiper.bundle.min.js"></script>
+
+    <!-- background -->
+    <!-- <script src="./js/js_plugins/particles.js"></script> -->
+    <!-- <script src="./js/js_plugins/app.js"></script> -->
+
+    <!-- <script src="./js/js_plugins/jQuery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+
+    <!-- custom JS -->
+    <script src="./js/globalMain.js"></script>
+    <script src="./js/localMain.js"></script>
+
+    <script src="./js/mountains.js" type="module"></script>
+    <style>
+      canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 301;
+      }
+    </style>
+  </body>
+</html>
