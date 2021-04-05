@@ -18,15 +18,15 @@ document.body.appendChild(renderer.domElement);
 let controls = new OrbitControls(camera, renderer.domElement);
 controls.enablePan  = false;
 controls.target.set(0, 5, 0);
-// controls.maxDistance = 200;
-// controls.minPolarAngle = Math.PI * 0.5;
-// controls.maxPolarAngle = Math.PI * 0.5;
-// controls.minAzimuthAngle = 0;
-// controls.maxAzimuthAngle = 0;
-// controls.update();
+controls.maxDistance = 200;
+controls.minPolarAngle = Math.PI * 0.5;
+controls.maxPolarAngle = Math.PI * 0.5;
+controls.minAzimuthAngle = 0;
+controls.maxAzimuthAngle = 0;
+controls.update();
 
 let light = new THREE.DirectionalLight(0xff99dd, 0.5);
-light.position.set(0, 35, -250);
+light.position.set(0, 35, -150);
 scene.add(light, new THREE.AmbientLight(0xffffff, 1.5));
 
 let globalUniforms = {
@@ -158,9 +158,8 @@ function setTerrain(t){
     let y = perlin.noise(vUv.x, vUv.y + 1, 0.005 + t) * 0.5 + 0.5;
     pos.setY(i, Math.pow(y, 5) * 75 * s);
   }
-  g.computeVertexNormals();
-
   pos.needsUpdate = true;
+  g.computeVertexNormals();
   ig.attributes.instPos.needsUpdate = true;
 }
 
@@ -168,7 +167,7 @@ setTerrain(0);
 
 // background
 
-let bg = new THREE.SphereGeometry(22000, 64, 32);
+let bg = new THREE.SphereGeometry(2000, 64, 32);
 let bm = new THREE.MeshBasicMaterial({
   fog: false,
   side: THREE.BackSide,

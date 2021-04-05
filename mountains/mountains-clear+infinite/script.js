@@ -4,7 +4,6 @@ import { ImprovedNoise } from "https://threejs.org/examples/jsm/math/ImprovedNoi
 
 const perlin = new ImprovedNoise();
 
-let panel;
 let scene = new THREE.Scene();
 let camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
 camera.position.set(0, 0.5, 1);
@@ -17,12 +16,12 @@ renderer.setSize(innerWidth, innerHeight);
 document.body.appendChild(renderer.domElement);
 
 let controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0.5, 0);
+controls.target.set(0, 1, 0);
 controls.update();
 
-let light = new THREE.DirectionalLight(0xffffff, 0.5);
-light.position.set(0, 0.0625, -1);
-scene.add(light, new THREE.AmbientLight(0xffffff, 1.5));
+let light = new THREE.DirectionalLight(0xff99dd, 7);
+light.position.set(0, 45, -200);
+scene.add(light, new THREE.AmbientLight(0xcc338f, 0.5));
 
 //sun
 let globalUniforms = {
@@ -31,7 +30,7 @@ let globalUniforms = {
 
 let sg = new THREE.CircleGeometry(20, 64);
 let sm = new THREE.MeshBasicMaterial({
-  color: 0xffeeff,
+  color: 0xe19e40,
   fog: false,
   transparent: true,
   onBeforeCompile: (shader) => {
@@ -60,7 +59,7 @@ let sm = new THREE.MeshBasicMaterial({
 });
 sm.defines = { USE_UV: "" };
 let so = new THREE.Mesh(sg, sm);
-so.position.copy(camera.position).setY(10).z -= 125;
+so.position.copy(camera.position).setY(10).z -= 250;
 
 scene.add(so);
 
@@ -93,60 +92,22 @@ let globalCounter = 1;
 let chunks = [];
 
 createChunk(0, 0x00007f);
-createChunk(-125, 0x7f007f);
+createChunk(-125, 0x00007f);
 
 let clock = new THREE.Clock();
 
 let scrollPos = 0;
 window.addEventListener("scroll", () => (scrollPos = window.scrollY));
 
-let pos = panel.attributes.position;
-// let uv = panel.attributes.uv;
-// let vUv = new THREE.Vector2();
-
-/* dots */
-let ig = new THREE.InstancedBufferGeometry().copy(new THREE.SphereGeometry(0.04, 8, 6));
-ig.instanceCount = Infinity;
-ig.setAttribute("instPos", new THREE.InstancedBufferAttribute(panel.attributes.position.array, 3));
-let im = new THREE.MeshBasicMaterial({
-  color: 0xffccaa,
-  onBeforeCompile: (shader) => {
-    shader.vertexShader = `
-      attribute vec3 instPos;
-      ${shader.vertexShader}
-    `.replace(
-      `#include <begin_vertex>`,
-      `#include <begin_vertex>
-        transformed += instPos;
-      `
-    );
-    shader.fragmentShader = shader.fragmentShader.replace(
-      `#include <fog_fragment>`,
-      `#ifdef USE_FOG
-          #ifdef FOG_EXP2
-            float fogFactor = 1.0 - exp( - fogDensity * fogDensity * fogDepth * fogDepth );
-          #else
-            float fogFactor = smoothstep( fogNear, fogFar, fogDepth );
-          #endif
-          if (fogDepth > fogFar) discard;
-          gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
-        #endif`
-    );
-    //console.log(shader.vertexShader);
-  },
-});
-let io = new THREE.Mesh(ig, im);
-io.frustumCulled = false;
-scene.add(io);
-
-/* dots end */
-
 renderer.setAnimationLoop((_) => {
-  // let t = clock.getDelta() * 25;
+  let t = clock.getDelta() * 25;
   // renderer.setClearColor(backColor);
 
-  console.log("world");
+  so.scale.x = 1 + scrollPos * 0.00005;
+  so.scale.y = 1 + scrollPos * 0.00005;
+
   globalUniforms.time.value = clock.getElapsedTime();
+  let calcedPos = (scrollPos * 0.0025) % 50;
 
   chunks.forEach((chunk) => {
     // let scrollPosCounted = scrollPos / 500;
@@ -155,7 +116,10 @@ renderer.setAnimationLoop((_) => {
 
     // chunk.position.z += t;
 
-    if (chunk.position.z > 125) {
+    chunk.position.z = calcedPos;
+    console.log(chunk.position.z);
+
+    if (chunk.position.z > 125 / 2) {
       let p = chunk.position.z % 125;
       console.log(p);
       chunk.position.z = -125 + p;
@@ -165,17 +129,54 @@ renderer.setAnimationLoop((_) => {
 
   renderer.render(scene, camera);
 });
+console.log(camera);
+
+// dots
+// let pos = g.attributes.position;
+
+// let ig = new THREE.InstancedBufferGeometry().copy(new THREE.SphereGeometry(0.1, 8, 6));
+// ig.instanceCount = Infinity;
+// ig.setAttribute("instPos", new THREE.InstancedBufferAttribute(pg.attributes.position.array, 3));
+// let im = new THREE.MeshBasicMaterial({
+//   color: 0xd3f1f1,
+//   onBeforeCompile: (shader) => {
+//     shader.vertexShader = `
+//       attribute vec3 instPos;
+//       ${shader.vertexShader}
+//     `.replace(
+//       `#include <begin_vertex>`,
+//       `#include <begin_vertex>
+//         transformed += instPos;
+//       `
+//     );
+//     shader.fragmentShader = shader.fragmentShader.replace(
+//       `#include <fog_fragment>`,
+//       `#ifdef USE_FOG
+//           #ifdef FOG_EXP2
+//             float fogFactor = 1.0 - exp( - fogDensity * fogDensity * fogDepth * fogDepth );
+//           #else
+//             float fogFactor = smoothstep( fogNear, fogFar, fogDepth );
+//           #endif
+//           if (fogDepth > fogFar) discard;
+//           gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
+//         #endif`
+//     );
+//   },
+// });
+// let io = new THREE.Mesh(ig, im);
+// io.frustumCulled = false;
+// scene.add(io);
+
+/* dots end */
 
 function createChunk(posZ) {
   let chunk = new THREE.Group();
 
-  let pg = new THREE.PlaneGeometry(50, 125, 50, 125);
-  panel = pg;
+  let pg = new THREE.PlaneGeometry(100, 125, 50, 125);
   pg.rotateX(-Math.PI * 0.5);
   let pm = new THREE.MeshStandardMaterial({
     color: 0x00007f,
-
-    roughness: 0.5,
+    roughness: 1,
     metalness: 0.8,
     wireframe: false,
     onBeforeCompile: (shader) => {
@@ -226,11 +227,11 @@ function updateChunk(chunk) {
   let uvScale = new THREE.Vector2(10, 25);
   for (let i = 0; i < pos.count; i++) {
     vUv.fromBufferAttribute(uv, i);
-    let s = smoothstep(0.01, 0.125, Math.abs(vUv.x - 0.5));
+    let s = smoothstep(0.005, 0.125, Math.abs(vUv.x - 0.5));
     vUv.multiply(uvScale);
     vUv.y += uvScale.y * globalCounter;
     let y = perlin.noise(vUv.x, vUv.y, 1) * 0.5 + 0.5;
-    pos.setY(i, Math.pow(y, 5) * 15 * s);
+    pos.setY(i, Math.pow(y, 5) * 45 * s);
   }
   g.computeVertexNormals();
   pos.needsUpdate = true;
