@@ -194,7 +194,7 @@ window.addEventListener( 'resize', onWindowResize );
 let clock = new THREE.Clock();
 renderer.setAnimationLoop( _ => {
 	let t = clock.getElapsedTime();
-  globalUniforms.time.value = t;
+  // globalUniforms.time.value = t;
   setTerrain(t * 0.05);
   so.position.copy(camera.position).setY(20).z -= 500;
 	renderer.render(scene, camera);

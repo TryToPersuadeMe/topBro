@@ -8,6 +8,7 @@ import { ImprovedNoise } from "https://threejs.org/examples/jsm/math/ImprovedNoi
 const perlin = new ImprovedNoise();
 
 // let composer;
+let mouseSpeed;
 let backColor = 0xff7fbb;
 let scene = new THREE.Scene();
 // scene.fog = new THREE.Fog(backColor, 1, 60);
@@ -44,20 +45,23 @@ renderer.setAnimationLoop((_) => {
   so.scale.x = 1 + scrollPos * 0.0007;
   so.scale.y = 1 + scrollPos * 0.0007;
 
-  let t = clock.getDelta() * 5;
-  globalUniforms.time.value = clock.getElapsedTime();
+  // globalUniforms.time.value = clock.getElapsedTime();
   // globalUniforms.time.value = tick;
+  let t = clock.getElapsedTime();
+  // globalUniforms.time.value = t;
 
   chunks.forEach((chunk) => {
-    updateChunk(chunk, t * 0.005);
-    console.log(t);
+    // updateChunk(chunk, t * 0.05);
+    updateChunk(chunk, t * mouseSpeed * 0.000000000001);
+    console.log(t * mouseSpeed * 0.00000000001);
+    // console.log(t * 0.05);
     chunk.position.z = calcedPos;
     chunk.userData.totalTime = calcedPos;
-    if (chunk.position.z > 225) {
-      let p = chunk.userData.totalTime % 225;
-      chunk.position.z = -225 + p;
-      // updateChunk(chunk, t * 0.05);
-    }
+    // if (chunk.position.z > 225) {
+    //   let p = chunk.userData.totalTime % 225;
+    //   chunk.position.z = -225 + p;
+    //   // updateChunk(chunk, t * 0.05);
+    // }
   });
 
   renderer.setClearColor(backColor);
@@ -75,7 +79,6 @@ renderer.setAnimationLoop((_) => {
 // composer = new EffectComposer(renderer);
 // composer.addPass(renderScene);
 // composer.addPass(bloomPass);
-// console.log(composer);
 
 // background
 let bg = new THREE.SphereGeometry(400, 64, 32);
@@ -144,14 +147,11 @@ function createChunk(posZ) {
           transformed += instPos;
         `
       );
-      //console.log(shader.vertexShader);
     },
   });
   let io = new THREE.Mesh(ig, im);
   io.frustumCulled = false;
   chunk.add(io);
-
-  console.log(ig);
 
   chunk.position.z = posZ;
   chunk.userData = {
@@ -249,17 +249,17 @@ scene.add(p);
 
 function updateChunk(chunk, t) {
   let g = chunk.children[0].geometry;
-  //console.log(g);
   let pos = g.attributes.position;
   let uv = g.attributes.uv;
   let vUv = new THREE.Vector2();
   let uvScale = new THREE.Vector2(10, 25);
+
   for (let i = 0; i < pos.count; i++) {
     vUv.fromBufferAttribute(uv, i);
     let s = smoothstep(0.01, 0.125, Math.abs(vUv.x - 0.5));
     vUv.multiply(uvScale);
     vUv.y += uvScale.y * 1;
-    let y = perlin.noise(vUv.x, vUv.y, +1, 0.005 + t) * 0.5 + 0.5;
+    let y = perlin.noise(vUv.x, vUv.y + 1, 0.005 + t) * 0.5 + 0.5;
     pos.setY(i, Math.pow(y, 6) * 35 * s);
   }
   g.computeVertexNormals();
@@ -268,7 +268,6 @@ function updateChunk(chunk, t) {
   chunk.children[1].geometry.attributes.instPos.needsUpdate = true;
 
   globalCounter++;
-  console.log(globalCounter);
 }
 
 //https://github.com/gre/smoothstep/blob/master/index.js
@@ -284,8 +283,32 @@ function onWindowResize() {
   renderer.setSize(innerWidth, innerHeight);
 }
 
-const q = document.querySelector(".wrapper");
+const $wrapper = document.querySelector(".wrapper");
 
-window.addEventListener("mouseeover", () => {
-  console.log("asd");
+// adapted from https://gist.github.com/ripper234/5757309
+
+var timestamp = null;
+var lastMouseX = null;
+var lastMouseY = null;
+
+document.body.addEventListener("mousemove", function (e) {
+  if (timestamp === null) {
+    timestamp = Date.now();
+    lastMouseX = e.screenX;
+    lastMouseY = e.screenY;
+    return;
+  }
+
+  var now = Date.now();
+  var dt = now - timestamp;
+  var dx = e.screenX - lastMouseX;
+  var dy = e.screenY - lastMouseY;
+  var speedX = Math.round((dx / dt) * 100);
+  var speedY = Math.round((dy / dt) * 100);
+
+  timestamp = now;
+  mouseSpeed = now;
+  console.log(now);
+  lastMouseX = e.screenX;
+  lastMouseY = e.screenY;
 });
