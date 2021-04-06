@@ -5,6 +5,11 @@
 }
  */
 /* for z-index layers */
+body {
+  color: #ffed4b94;
+  color: #fc2ce0;
+}
+
 /* vendors - code from side sources and Libraries */
 @font-face {
   font-family: swiper-icons;

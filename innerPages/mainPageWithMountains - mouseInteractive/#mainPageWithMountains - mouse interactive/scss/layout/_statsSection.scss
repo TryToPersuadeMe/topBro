@@ -1,0 +1,151 @@
+.stats {
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__boxesWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    margin: 100px -5px 0 -5px;
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+    margin: 0px 5px 90px 5px;
+    * {
+      transition: 0.3s ease;
+    }
+    &:hover {
+      .stats__numbers {
+        color: rgba(239, 243, 245, 1);
+        text-shadow: 4px 7px 7px #f36f56;
+      }
+
+      .stats__text {
+        color: rgba(255, 255, 255, 0.2);
+        -webkit-text-stroke: 2px #eff3f5;
+      }
+    }
+
+    &_big {
+      max-width: 550px;
+    }
+    &_medium {
+      max-width: 450px;
+    }
+    &_small {
+      max-width: 280px;
+    }
+  }
+
+  &__numbers {
+    white-space: nowrap;
+    font-size: 90px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.2);
+    -webkit-text-stroke: 2px rgb(239, 243, 245);
+    position: absolute;
+    transform: translateY(-45%);
+    top: 0;
+    left: 0;
+  }
+
+  &__text {
+    font-weight: 900;
+    font-size: 32px;
+    line-height: 1.5;
+    -webkit-text-stroke: 2px transparent;
+    color: rgba(239, 243, 245, 1);
+  }
+}
+
+@media (max-width: 1024px) {
+  .stats {
+    &__ &__box {
+      &_big {
+        max-width: 355px;
+      }
+      &_medium {
+        max-width: 300px;
+      }
+      &_small {
+        max-width: 220px;
+      }
+    }
+
+    &__numbers {
+      font-size: 68px;
+    }
+
+    &__text {
+      font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    &__box {
+      &_big {
+        max-width: 300px;
+      }
+      &_medium {
+        max-width: 280px;
+      }
+      &_small {
+        max-width: 180px;
+      }
+    }
+
+    &__numbers {
+      font-size: 52px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .stats {
+    &__boxesWrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: 100px 0 0 0;
+    }
+    &__box {
+      margin: 0 0 45px 0;
+    }
+
+    &__numbers {
+      left: 50%;
+      transform: translate(-50%, -45%);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    &__boxesWrapper {
+      margin-top: 60px;
+    }
+    &__numbers {
+      font-size: 42px;
+    }
+
+    &__text {
+      font-size: 18px;
+    }
+  }
+}
