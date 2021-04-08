@@ -83,7 +83,7 @@ function trackMouse(hover, pointer) {
       $pointer.style.opacity = 1;
     }
 
-    TweenMax.to($pointer, 0.7, {
+    TweenMax.to($pointer, 0.2, {
       left: parseInt(mouseX(evt)) - off + "px",
       top: parseInt(mouseY(evt)) - off + "px",
       ease: Power3.easeOut,
