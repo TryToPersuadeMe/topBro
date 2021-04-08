@@ -17,7 +17,6 @@
       <div class="pointer__circle"></div>
     </div>
     <!-- background -->
-    <div id="particles-js"></div>
     <div class="wrapper">
       <div class="fullHeightScreenWrapper">
         @@include("./_header.html")
@@ -43,13 +42,10 @@
     </div>
 
     @@include("./_getFeedBackFrom.html")
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- swiper -->
     <script src="./js/js_plugins/swiper.bundle.min.js"></script>
-
-    <!-- background -->
-    <!-- <script src="./js/js_plugins/particles.js"></script> -->
-    <!-- <script src="./js/js_plugins/app.js"></script> -->
 
     <!-- <script src="./js/js_plugins/jQuery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
@@ -64,11 +60,6 @@
 
     <script src="./js/mountains.js" type="module"></script>
     <style>
-      .wrapper {
-        /* display: none; */
-        opacity: 0;
-      }
-
       canvas {
         position: fixed;
         top: 0;
@@ -78,22 +69,3 @@
     </style>
   </body>
 </html>
-
-<!--     shader.uniforms.noiseTex = globalUniforms.noise;
-    shader.vertexShader = `
-      uniform sampler2D noiseTex;
-      attribute vec4 instData;
-      ${shader.vertexShader}
-    `.replace(
-      `#include <begin_vertex>`,
-      `#include <begin_vertex>
-      transformed = position * instData.z;
-      
-      transformed.x += instData.x;
-      transformed.z += instData.y;
-      vec2 nUv = (vec2(instData.x, -instData.y) - vec2(-25.)) / 50.;
-      float h = texture2D(noiseTex, nUv).g;
-      h = (h - 0.5) * 4.;
-      transformed.y += h;
-      `
-    ); -->

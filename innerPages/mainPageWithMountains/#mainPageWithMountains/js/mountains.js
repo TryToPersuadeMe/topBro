@@ -1,16 +1,13 @@
 import * as THREE from "https://threejs.org/build/three.module.js";
 import { OrbitControls } from "https://threejs.org/examples/jsm/controls/OrbitControls.js";
 import { ImprovedNoise } from "https://threejs.org/examples/jsm/math/ImprovedNoise.js";
-// import { UnrealBloomPass } from "https://threejs.org/examples/jsm/postprocessing/UnrealBloomPass.js";
-// import { EffectComposer } from "https://threejs.org/examples/jsm/postprocessing/EffectComposer.js";
-// import { RenderPass } from "https://threejs.org/examples/jsm/postprocessing/RenderPass.js";
 
 const perlin = new ImprovedNoise();
 
 // let composer;
+let mouseSpeed = 0;
 let backColor = 0xff7fbb;
 let scene = new THREE.Scene();
-// scene.fog = new THREE.Fog(backColor, 1, 60);
 
 let camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 1000);
 camera.position.set(0, 1, 60);
@@ -20,8 +17,11 @@ document.body.appendChild(renderer.domElement);
 
 let controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0.5, 0);
+controls.enable = false;
+controls.enablePan = false;
+controls.enableRotate = false;
+controls.enableZoom = false;
 controls.update();
-// controls.enabled = false;
 
 let light = new THREE.DirectionalLight(0xcc3991, 0.4);
 light.position.set(0, 30, -200);
@@ -34,48 +34,33 @@ createChunk(0, 0x00007f);
 createChunk(-225, 0x7f007f);
 
 let clock = new THREE.Clock();
-
 let scrollPos = 0;
-
-window.addEventListener("scroll", () => (scrollPos = window.scrollY));
+window.addEventListener("scroll", () => {
+  scrollPos = window.scrollY;
+});
 
 renderer.setAnimationLoop((_) => {
   let calcedPos = scrollPos * 0.01;
   so.scale.x = 1 + scrollPos * 0.0007;
   so.scale.y = 1 + scrollPos * 0.0007;
 
-  let t = clock.getDelta() * 5;
+  let t = clock.getElapsedTime();
   globalUniforms.time.value = clock.getElapsedTime();
-  // globalUniforms.time.value = tick;
 
   chunks.forEach((chunk) => {
-    updateChunk(chunk, t * 0.005);
-    console.log(t);
+    updateChunk(chunk, t * 0.1);
+    mouseSpeed;
     chunk.position.z = calcedPos;
     chunk.userData.totalTime = calcedPos;
     if (chunk.position.z > 225) {
       let p = chunk.userData.totalTime % 225;
       chunk.position.z = -225 + p;
-      // updateChunk(chunk, t * 0.05);
     }
   });
 
   renderer.setClearColor(backColor);
   renderer.render(scene, camera);
 });
-
-// const renderScene = new RenderPass(scene, camera);
-
-/* bloom */
-// const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.85);
-// bloomPass.threshold = 0;
-// bloomPass.strength = 1.5;
-// bloomPass.radius = 0;
-
-// composer = new EffectComposer(renderer);
-// composer.addPass(renderScene);
-// composer.addPass(bloomPass);
-// console.log(composer);
 
 // background
 let bg = new THREE.SphereGeometry(400, 64, 32);
@@ -144,14 +129,12 @@ function createChunk(posZ) {
           transformed += instPos;
         `
       );
-      //console.log(shader.vertexShader);
+      // (shader.vertexShader);
     },
   });
   let io = new THREE.Mesh(ig, im);
   io.frustumCulled = false;
   chunk.add(io);
-
-  console.log(ig);
 
   chunk.position.z = posZ;
   chunk.userData = {
@@ -172,35 +155,6 @@ let globalUniforms = {
 let sg = new THREE.CircleGeometry(20, 64);
 let sm = new THREE.MeshBasicMaterial({
   map: new THREE.TextureLoader().load("./resources/sun.png"),
-  // uniforms: {
-  //   color1: {
-  //     value: new THREE.Color("#fc2cae"),
-  //   },
-  //   color2: {
-  //     value: new THREE.Color("#ffee4b"),
-  //   },
-  // },
-  // vertexShader: `
-  //   varying vec2 vUv;
-
-  //   void main() {
-  //     vUv = uv;
-  //     gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.0);
-  //   }
-  // `,
-  // fragmentShader: `
-  //   uniform vec3 color1;
-  //   uniform vec3 color2;
-
-  //   varying vec2 vUv;
-
-  //   void main() {
-
-  //     gl_FragColor = vec4(mix(color1, color2, vUv.y), 1.0);
-  //   }
-  // `,
-
-  // color: 0xffeeff,
   fog: false,
   transparent: true,
   onBeforeCompile: (shader) => {
@@ -243,13 +197,10 @@ let g = new THREE.BufferGeometry().setFromPoints(pts);
 let m = new THREE.PointsMaterial({ map: new THREE.TextureLoader().load(imgData), size: 2.25, alphaTest: 0.5 });
 let p = new THREE.Points(g, m);
 p.position.copy(so.position).setY(20).z -= 20;
-// p.position.x = 100
-// p.position.y = 10;
 scene.add(p);
 
 function updateChunk(chunk, t) {
   let g = chunk.children[0].geometry;
-  //console.log(g);
   let pos = g.attributes.position;
   let uv = g.attributes.uv;
   let vUv = new THREE.Vector2();
@@ -259,7 +210,7 @@ function updateChunk(chunk, t) {
     let s = smoothstep(0.01, 0.125, Math.abs(vUv.x - 0.5));
     vUv.multiply(uvScale);
     vUv.y += uvScale.y * 1;
-    let y = perlin.noise(vUv.x, vUv.y, +1, 0.005 + t) * 0.5 + 0.5;
+    let y = perlin.noise(vUv.x, vUv.y + 1, 0.005 + t) * 0.5 + 0.5;
     pos.setY(i, Math.pow(y, 6) * 35 * s);
   }
   g.computeVertexNormals();
@@ -268,10 +219,8 @@ function updateChunk(chunk, t) {
   chunk.children[1].geometry.attributes.instPos.needsUpdate = true;
 
   globalCounter++;
-  console.log(globalCounter);
 }
 
-//https://github.com/gre/smoothstep/blob/master/index.js
 function smoothstep(min, max, value) {
   var x = Math.max(0, Math.min(1, (value - min) / (max - min)));
   return x * x * (3 - 2 * x);
@@ -283,9 +232,3 @@ function onWindowResize() {
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);
 }
-
-const q = document.querySelector(".wrapper");
-
-window.addEventListener("mouseeover", () => {
-  console.log("asd");
-});
