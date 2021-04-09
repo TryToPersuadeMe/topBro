@@ -1,9 +1,41 @@
 .firstScreen {
+  height: 100%;
+  width: 100%;
   &__container {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 200px;
     text-align: center;
-    max-width: 970px;
+    max-width: 1070px;
+
+    position: relative;
+  }
+
+  &__socialMediaItem {
+    position: absolute;
+
+    &_1 {
+      animation: scale infinite 3s ease;
+      left: 20px;
+      bottom: 130px;
+    }
+
+    &_2 {
+      animation: scale infinite 4s linear;
+      left: 50%;
+      bottom: 110px;
+    }
+
+    &_3 {
+      left: 25%;
+      animation: scale infinite 6s ease-out;
+      bottom: 35px;
+    }
+
+    &_4 {
+      right: 5%;
+      animation: scale infinite 5s ease-in-out;
+      bottom: 65px;
+    }
   }
 
   &__linkButton {
@@ -20,6 +52,15 @@
   .firstScreen {
     &__linkButton {
       max-width: 180px;
+    }
+  }
+}
+
+@media (min-width: 701px) {
+  .firstScreen {
+    &__container {
+      padding-left: 100px;
+      padding-right: 100px;
     }
   }
 }

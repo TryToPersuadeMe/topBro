@@ -1954,11 +1954,49 @@ button.swiper-pagination-bullet {
   }
 }
 
+.firstScreen {
+  height: 100%;
+  width: 100%;
+}
+
 .firstScreen__container {
   padding-top: 30px;
-  padding-bottom: 30px;
+  padding-bottom: 200px;
   text-align: center;
-  max-width: 970px;
+  max-width: 1070px;
+  position: relative;
+}
+
+.firstScreen__socialMediaItem {
+  position: absolute;
+}
+
+.firstScreen__socialMediaItem_1 {
+  -webkit-animation: scale infinite 3s ease;
+          animation: scale infinite 3s ease;
+  left: 20px;
+  bottom: 130px;
+}
+
+.firstScreen__socialMediaItem_2 {
+  -webkit-animation: scale infinite 4s linear;
+          animation: scale infinite 4s linear;
+  left: 50%;
+  bottom: 110px;
+}
+
+.firstScreen__socialMediaItem_3 {
+  left: 25%;
+  -webkit-animation: scale infinite 6s ease-out;
+          animation: scale infinite 6s ease-out;
+  bottom: 35px;
+}
+
+.firstScreen__socialMediaItem_4 {
+  right: 5%;
+  -webkit-animation: scale infinite 5s ease-in-out;
+          animation: scale infinite 5s ease-in-out;
+  bottom: 65px;
 }
 
 .firstScreen__linkButton {
@@ -1977,6 +2015,13 @@ button.swiper-pagination-bullet {
 @media (max-width: 1024px) {
   .firstScreen__linkButton {
     max-width: 180px;
+  }
+}
+
+@media (min-width: 701px) {
+  .firstScreen__container {
+    padding-left: 100px;
+    padding-right: 100px;
   }
 }
 
@@ -2258,6 +2303,7 @@ button.swiper-pagination-bullet {
   font-weight: 800;
   line-height: 1.2;
   text-align: center;
+  text-shadow: 0px 0px 15px #f16b41;
   color: #eff3f5;
 }
 
@@ -2297,6 +2343,10 @@ button.swiper-pagination-bullet {
   min-height: 100vh;
   max-width: 100%;
   width: 100%;
+  position: relative;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 @media (min-width: 901px) {
@@ -2305,9 +2355,93 @@ button.swiper-pagination-bullet {
   }
 }
 
-.fullHeightScreenWrapper .firstScreen {
+@-webkit-keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes scale {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.75);
+            transform: scale(0.75);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.socialMediaDynamic {
+  display: grid;
+  padding: 50px 20px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(50px, 50px));
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.socialMediaDynamic__item {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+.socialMediaDynamic__item:nth-child(even) {
+  grid-row: 1/2 span;
+}
+
+.socialMediaDynamic__item:nth-child(odd) {
+  grid-row: 2/2;
+}
+
+.socialMediaDynamic__item:nth-child(1) {
+  -webkit-animation: scale infinite 3s ease;
+          animation: scale infinite 3s ease;
+}
+
+.socialMediaDynamic__item:nth-child(2) {
   -ms-flex-item-align: center;
       align-self: center;
+  -webkit-animation: scale infinite 6s ease-in;
+          animation: scale infinite 6s ease-in;
+}
+
+.socialMediaDynamic__item:nth-child(3) {
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-animation: scale infinite 4s ease-in-out;
+          animation: scale infinite 4s ease-in-out;
+}
+
+.socialMediaDynamic__item:nth-child(4) {
+  -webkit-animation: scale infinite 7s ease-out;
+          animation: scale infinite 7s ease-out;
+}
+
+.socialMediaDynamic__item img,
+.socialMediaDynamic__item source {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (max-width: 1024px) {
@@ -2325,7 +2459,10 @@ button.swiper-pagination-bullet {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
+  .socialMediaDynamic {
+    padding-top: 0;
+  }
   .sectionSupTitle {
     font-size: 26px;
   }
@@ -2334,14 +2471,5 @@ button.swiper-pagination-bullet {
   }
   .sectionTitle {
     font-size: 36px;
-  }
-}
-
-@media (max-width: 480px) {
-  .sectionSupTitle {
-    font-size: 24px;
-  }
-  .sectionSupTitle_marginDefault {
-    margin-bottom: 40px;
   }
 }
